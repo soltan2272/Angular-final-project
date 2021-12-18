@@ -17,10 +17,9 @@ const routes: Routes = [
 
   {path:"home" , component:HomeComponent},
   {path:"payment" , component:PaypalComponent},
-  {path:"home" , component:ProductSerComponent},
+  {path:"blog" , component:ProductSerComponent},
   {path:"addProduct" , component:AddProductComponent},
-  {path:"editProduct" , component:EditProductComponent},
-
+  {path:"editProduct/:PID" , component:EditProductComponent},
   {path:"products" , 
   loadChildren : ()=> import ('src/app/Components/productDetiales/product/product.module').then(m=> m.ProductModule)},
   {path:"user" , 
