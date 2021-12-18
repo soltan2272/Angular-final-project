@@ -1,0 +1,19 @@
+<div *ngIf="!paidFor">
+
+    <h1>Buy this Couch - ${{totalprice}} $</h1>
+  
+    <h2>العوان يا سلطان</h2>
+  
+  
+  </div>
+  
+  <div *ngIf=paidFor>
+    <h1>Yay, you bought a sweet couch!</h1>{{invoiceprice}}
+    <h2>الفاتوره يا سلطان</h2>
+
+    <img src="assets/giphy.gif">
+  </div>
+  
+  
+  <div [hidden]="paidFor" #paypal></div>
+  <style></style>

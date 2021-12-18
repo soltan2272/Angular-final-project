@@ -1,0 +1,105 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="wrapper fadeInDown d-flex justify-content-center" style="text-align: center;">
+  <div id="formContent">
+
+    <div class="d-flex justify-content-center">
+
+      <select class="select" (change)="changeLanguage($event)">
+        <option value="en">English</option>
+        <option value="ar">عربى</option>
+      </select>
+    </div>
+
+    
+    <div class="fadeIn first">
+      <img src="assets/img/logo.png" id="icon" alt="User Icon" />
+    </div>
+
+
+    <form [formGroup]=" registerform" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="FullName"  class="form-label">{{'RegisterModule.FullName' | translate}}</label>
+            <input type="text"  formControlName="FullName"  [class.is-invalid]=" registerform.controls['FullName'].invalid &&  registerform.controls['FullName'].touched" [class.is-valid]=" registerform.controls['FullName'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+        
+          </div>
+        <div class="mb-3">
+            <label for="email"  class="form-label">{{'RegisterModule.Email' | translate}}</label>
+            <input type="email"  formControlName="Email"  [class.is-invalid]=" registerform.controls['Email'].invalid &&  registerform.controls['Email'].touched" [class.is-valid]=" registerform.controls['Email'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+        
+          </div>
+       
+          <div class="mb-3">
+            <label for="pass"  class="form-label">{{'RegisterModule.Password' | translate}}</label>
+            <input type="password" [class.is-invalid]=" registerform.controls['Password'].invalid &&  registerform.controls['Password'].touched" [class.is-valid]=" registerform.controls['Password'].valid" formControlName="Password" class="form-control" name="" id="pass" placeholder="">
+          </div>
+          <div class="mb-3">
+            <label for="SSN"  class="form-label">{{'RegisterModule.SSN' | translate}}</label>
+            <input type="number"  formControlName="SSN"  [class.is-invalid]=" registerform.controls['SSN'].invalid &&  registerform.controls['SSN'].touched" [class.is-valid]=" registerform.controls['SSN'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+        
+          </div>
+          <label for="Address"  class="form-label">{{'RegisterModule.Governate' | translate}}</label>
+          <select class="form-select" formControlName="Address"  [class.is-invalid]=" registerform.controls['Address'].invalid &&  registerform.controls['Address'].touched" [class.is-valid]=" registerform.controls['Address'].valid" aria-label="Default select example">
+                <option selected="selected" value="Kalyobiya">Kalyobiya  </option>
+                <option value="Suez">Suez  </option>
+                <option value="Cairo">Cairo  </option>
+                <option value="Alexandria ">Alexandria  </option>
+                <option value="Sharqeia">Sharqeia  </option>
+                <option value="Damietta">Damietta  </option>
+                <option value="Kafr El Shiekh">Kafr El Shiekh </option>
+                <option value="The Red Sea">The Red Sea  </option>
+                <option value="El-Beheira">El-Beheira  </option>
+                <option value="Assiut">Assiut  </option>
+                <option value="Ismailia">Ismailia  </option>
+                <option value="New Valley">New Valley  </option>
+                <option value="Qena">Qena  </option>
+                <option value="South Sinai">South Sinai  </option>
+                <option value="Sohag ">Sohag  </option>
+                <option value="Fayoum">Fayoum  </option>
+                <option value="Bani Souwaif">Bani Souwaif  </option>
+                <option value="Port-Said">Port-Said  </option>
+                <option value="Matrouh">Matrouh  </option>
+                <option value="Menia">Menia  </option>
+                <option value="Dakahliya">Dakahliya  </option>
+                <option value="Aswan">Aswan  </option>
+                <option value="North Sinai">North Sinai  </option>
+                <option value="Monofiya">Monofiya  </option>
+                <option value="Giza ">Giza  </option>
+                <option value="Luxor">Luxor  </option>
+                <option value="Al Gharbya">Al Gharbya </option>
+        
+          </select>
+          <div class="mb-3">
+            <label for="Phone"  class="form-label">{{'RegisterModule.Phone' | translate}}</label>
+            <input type="number"  formControlName="Phone"  [class.is-invalid]=" registerform.controls['Phone'].invalid &&  registerform.controls['Phone'].touched" [class.is-valid]=" registerform.controls['Phone'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+        
+          </div>
+          <div class="mb-3">
+            <label for="date_birth"  class="form-label">{{'RegisterModule.DateBirth' | translate}}</label>
+            <input type="date"  formControlName="date_birth"  [class.is-invalid]=" registerform.controls['date_birth'].invalid &&  registerform.controls['date_birth'].touched" [class.is-valid]=" registerform.controls['date_birth'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+          </div>
+
+          <div class="form-check">
+            <input  formControlName="isSeller" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+            {{'RegisterModule.MarkSeller' | translate}}  
+            </label>
+          </div>
+
+          <br>
+          <button type="submit" [disabled]=" registerform.invalid" class="btn btn-primary">Submit</button>
+
+    </form>
+
+    <div [hidden]="isLogged" class="alert alert-light text-danger" role="alert">
+        {{Message}}
+      </div>
+      <div  [hidden]="!isLogged"  class="alert alert-light text-success" role="alert">
+        {{Message}}
+      </div>
+  
+  </div>
+</div>

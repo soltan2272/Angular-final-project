@@ -1,0 +1,83 @@
+<div class="single-product-area">
+    <div class="container">
+        <div class="row m-4">
+            <div class="col-md-12">
+                <div class="product-content-right">
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="product-images">
+                                <div class="product-main-img">
+                                    <!-- <img src="{{product?.image}}" alt=""> -->
+                                    <img src="assets/img/women-3.jpg">
+                                </div>
+
+                                <div class="product-gallery">
+                                    <img src="img/product-thumb-1.jpg" alt="">
+                                    <img src="img/product-thumb-2.jpg" alt="">
+                                    <img src="img/product-thumb-3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product-inner">
+                                <h2 class="product-name mb-4">{{product?.name}}</h2>
+                                <div class="product-inner-price mb-4">
+                                    <b>{{product?.price | currency : 'LE'}}</b>
+                                </div>
+
+                                <div action="" class="cart mb-5">
+                                    <div class="quantity">
+                                        <button class="btn btn-primary" (click)="addcart(product)" >Add to cart</button>
+                                    </div>
+                                </div>
+
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="#">Description</a>
+                                            </li>
+                                            
+                                            
+
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Link</a>
+                                            </li>
+                                            <div>
+                                                <h2>Product Description</h2>  
+                                                {{product?.description}}</div>
+                                            <div>
+                                                <p><label for="name">Name</label> <input class="form-control" name="name" type="text"></p>
+                                                <p><label for="email">Email</label> <input class="form-control" name="email" type="email"></p>
+                                                <div class="rating-chooser">
+                                                    <p>Your rating</p>
+
+                                                    <div class="rating-wrap-post">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p><label for="review">Your review</label> <textarea class="form-control" name="review" id="" cols="30" rows="10"></textarea></p>
+                                                <p><input class="btn btn-primary" type="submit" value="Submit"></p>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                         
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="related-products-wrapper">
+                        <h2 class="related-products-title">Some Review </h2>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,19 @@
+{
+    "LoginModule": {
+      "Email": "Email",
+      "Password":"Password",
+      "Submit":"Submit",
+      "ForgetPassword":"Forgot Password?"
+    },
+    "RegisterModule": {
+        "Email": "Email",
+        "Password":"Password",
+        "Submit":"Submit",
+        "SSN":"SSN",
+        "FullName":"Full Name",
+        "Phone":"Phone",
+        "DateBirth":"Date Of Birth",
+        "Governate":"Governate",
+        "MarkSeller":"Mark If you Seller"
+      }
+  }

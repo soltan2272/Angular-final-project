@@ -1,0 +1,51 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    
+
+    <div class="d-flex justify-content-center">
+
+      <select class="select" (change)="changeLanguage($event)">
+        <option value="en">English</option>
+        <option value="ar">عربى</option>
+      </select>
+    </div>
+      <div class="select-custom-content">
+
+    <div class="fadeIn first">
+      <img src="assets/img/logo.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="email"  class="form-label">{{'LoginModule.Email' | translate}}</label>
+            <input type="email"  formControlName="Email"  [class.is-invalid]="loginform.controls['Email'].invalid && loginform.controls['Email'].touched" [class.is-valid]="loginform.controls['Email'].valid" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+          
+          </div>
+       
+          <div class="mb-3">
+            <label for="pass"  class="form-label">{{'LoginModule.Password' | translate}}</label>
+            <input type="password" [class.is-invalid]="loginform.controls['Password'].invalid && loginform.controls['Password'].touched" [class.is-valid]="loginform.controls['Password'].valid" formControlName="Password" class="form-control" name="" id="pass" placeholder="">
+          </div>
+          <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary">{{'LoginModule.Submit' | translate}}</button>
+
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">{{'LoginModule.ForgetPassword' | translate}}</a>
+    </div>
+    <div [hidden]="isLogged" class="alert alert-light text-danger" role="alert">
+        {{Message}}
+      </div>
+      <div  [hidden]="!isLogged"  class="alert alert-light text-success" role="alert">
+        {{Message}}
+      </div>
+  
+  </div>
+</div>

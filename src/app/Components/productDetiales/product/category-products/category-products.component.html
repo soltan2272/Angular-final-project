@@ -1,0 +1,154 @@
+<div class="row">
+
+
+  <div class="shadow col-lg-3 col-md-3 col-sm-12">
+    <h2 class="text-uppercase">Price</h2>
+    <a class="filter" (click)="filterPrice(1,25)">
+      <h4>Up to 25 EGP</h4>
+    </a>
+    <a class="filter" (click)="filterPrice(25,50)">
+      <h4>25 to 50 EGP</h4>
+    </a>
+    <a class="filter" (click)="filterPrice(50,100)">
+      <h4>50 to 100 EGP</h4>
+    </a>
+    <a class="filter" (click)="filterPrice(100,200)">
+      <h4>100 to 200 EGP</h4>
+    </a>
+    <a class="filter" (click)="filterPrice(200,300)">
+      <h4>200 to 300 EGP</h4>
+    </a>
+    <a class="filter" (click)="filterPrice(300,500)">
+      <h4>300 to 500 EGP</h4>
+    </a>
+    <hr>
+    <br>
+    <h2 class="text-uppercase">Avg. Customer Review</h2> 
+    <h3 class="filter" (click)="filterRate(4,5)">
+      <span id="s1" class="s1 fa fa-star checked"></span>
+      <span id="s2" class="s2 fa fa-star checked"></span>
+      <span id="s3" class="s3 fa fa-star checked"></span>
+      <span id="s4" class="s4 fa fa-star checked"></span>
+      <span id="s5" class="s5 fa fa-star"></span>
+      <span> $ UP</span>
+    </h3>
+    <h3 class="filter" (click)="filterRate(3,5)" >
+      <span id="s1" class="s1 fa fa-star checked"></span>
+      <span id="s2" class="s2 fa fa-star checked"></span>
+      <span id="s3" class="s3 fa fa-star checked"></span>
+      <span id="s4" class="s4 fa fa-star"></span>
+      <span id="s5" class="s5 fa fa-star"></span>
+      <span> $ UP</span>
+    </h3>
+
+    <h3 class="filter"  (click)="filterRate(2,5)">
+      <span id="s1" class="s1 fa fa-star checked"></span>
+      <span id="s2" class="s2 fa fa-star checked"></span>
+      <span id="s3" class="s3 fa fa-star "></span>
+      <span id="s4" class="s4 fa fa-star"></span>
+      <span id="s5" class="s5 fa fa-star"></span>
+      <span> $ UP</span>
+    </h3>
+
+    <h3 class="filter" (click)="filterRate(1,5)">
+      <span id="s1" class="s1 fa fa-star checked"></span>
+      <span id="s2" class="s2 fa fa-star "></span>
+      <span id="s3" class="s3 fa fa-star "></span>
+      <span id="s4" class="s4 fa fa-star"></span>
+      <span id="s5" class="s5 fa fa-star"></span>
+      <span> $ UP</span>
+    </h3>
+
+
+
+
+
+
+    </div>
+  <div class="col-lg-9 col-md-9 col-sm-12" >
+
+    <!-- product -->
+    <div class="row" *ngIf="resultsearch.length !=0">
+      <div class="owl-item col-lg-4  m-0  mb-3 col-md-6 col-sm-12"
+        style="width: 20vw; border: 2px solid rgb(236, 226, 226); border-radius: 10px;" *ngFor="let p of resultsearch">
+        <div class="product-item">
+          <div class="pi-pic">
+            <img src="assets/img/women-3.jpg">
+            <a class="icon" (click)="AddWatch(p)">
+              <i class="text-danger icon_heart_alt"></i>
+            </a>
+            <ul>
+              <li class="w-icon active">
+                <a _ngcontent-npt-c17="" (click)="addcart(p)">
+                  <i class="icon_bag_alt"></i>
+                </a>
+              </li>
+              <li class="quick-view">
+                <a (click)="getproductditails(p.id)" style="cursor: pointer;">+ Quick View</a>
+              </li>
+              <li class="w-icon">
+                <a _ngcontent-npt-c17="" href="#">
+                  <i class="fa fa-random"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="pi-text">
+            <div class="catagory-name" [ngSwitch]="p.rate">
+              <div *ngSwitchCase="1">
+                <span id="s1" class="s1 fa fa-star checked"></span>
+                <span id="s2" class="s2 fa fa-star "></span>
+                <span id="s3" class="s3 fa fa-star "></span>
+                <span id="s4" class="s4 fa fa-star"></span>
+                <span id="s5" class="s5 fa fa-star"></span>
+              </div>
+              <div *ngSwitchCase="2">
+                <span id="s1" class="s1 fa fa-star checked"></span>
+                <span id="s2" class="s2 fa fa-star checked"></span>
+                <span id="s3" class="s3 fa fa-star "></span>
+                <span id="s4" class="s4 fa fa-star"></span>
+                <span id="s5" class="s5 fa fa-star"></span>
+              </div>
+              <div *ngSwitchCase="3">
+                <span id="s1" class="s1 fa fa-star checked"></span>
+                <span id="s2" class="s2 fa fa-star checked"></span>
+                <span id="s3" class="s3 fa fa-star checked"></span>
+                <span id="s4" class="s4 fa fa-star"></span>
+                <span id="s5" class="s5 fa fa-star"></span>
+              </div>
+              <div *ngSwitchCase="4">
+                <span id="s1" class="s1 fa fa-star checked"></span>
+                <span id="s2" class="s2 fa fa-star checked"></span>
+                <span id="s3" class="s3 fa fa-star checked"></span>
+                <span id="s4" class="s4 fa fa-star checked"></span>
+                <span id="s5" class="s5 fa fa-star"></span>
+              </div>
+              <div *ngSwitchCase="5">
+                <span id="s1" class="s1 fa fa-star checked"></span>
+                <span id="s2" class="s2 fa fa-star checked"></span>
+                <span id="s3" class="s3 fa fa-star checked"></span>
+                <span id="s4" class="s4 fa fa-star checked"></span>
+                <span id="s5" class="s5 fa fa-star checked"></span>
+              </div>
+            </div>
+            <h5>{{p.name}}</h5>
+            <div class="product-price"> {{p.price | currency: 'LE'}}</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+    <div *ngIf="resultsearch.length ==0">
+      <img class="empty" src="assets/img/searchempty.jpg">
+      <br>
+      <a [routerLink]="['/products/shop']" class="btno btn btn-primary" >Shop Now</a>
+  
+  </div>
+  </div>
+ 
+</div>
