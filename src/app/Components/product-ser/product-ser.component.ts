@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductSerService } from 'src/app/Services/product-ser.service';
+import { ProductSerService } from 'src/app/Services/productSer/product-ser.service';
 import { IProduct } from 'src/app/ViewModels/iproduct';
 import { ResultViewModel } from 'src/app/ViewModels/result-view-model';
 
@@ -51,8 +51,14 @@ export class ProductSerComponent implements OnInit , OnChanges {
 
   deleteProd(id:number)
   {
+    
     this.ActRouter.paramMap.subscribe(param =>{
-    this.productSer.deleteProduct(id);
+    this.productSer.deleteProduct(id).subscribe({
+      next : (res) =>
+       { 
+         this.ps = res.data as IProduct[]
+       }
+    }) 
    })
   }
 

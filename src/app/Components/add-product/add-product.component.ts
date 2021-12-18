@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductSerService } from 'src/app/Services/product-ser.service';
+import { ProductSerService } from 'src/app/Services/productSer/product-ser.service'
 import { InsertProduct } from 'src/app/ViewModels/insert-product';
 import { IProduct } from 'src/app/ViewModels/iproduct';
 
@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit {
       description:"",
       rate:1,
       currentCategoryID:1,
-      currentSupplierID:1,
+      currentSupplierID:1, 
       imgspathes:[""]
   }
    }
