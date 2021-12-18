@@ -26,6 +26,7 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
+import { CustomerprofileComponent } from './Components/User/customerprofile/customerprofile.component';
 
 export function createTranslateLoader(http:HttpClient)
 {
@@ -46,7 +47,8 @@ export function createTranslateLoader(http:HttpClient)
     EditProductComponent,
     ShoppingCartComponent,
     PaymentComponent,
-    PaypalComponent
+    PaypalComponent,
+    CustomerprofileComponent
     
     
     
