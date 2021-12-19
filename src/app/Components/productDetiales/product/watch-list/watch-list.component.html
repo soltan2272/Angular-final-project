@@ -1,7 +1,8 @@
 <div class="row">
     <div *ngIf="products.length !=0">
-        <div class="owl-item col-lg-3 m-0 mb-3 col-md-6 col-sm-12" style="width: 20vw; border: 2px solid rgb(236, 226, 226); border-radius: 10px;"
-            *ngFor="let p of products">
+        <div class="owl-item col-lg-3 m-0 mb-3 col-md-6 col-sm-12" 
+            style="width: 20vw; border: 2px solid rgb(236, 226, 226); border-radius: 10px; float: left;"
+            *ngFor="let p of products | paginate: { itemsPerPage: 6, currentPage: Page ,totalItems: PageNum }">
             <div class="product-item">
                 <div class="pi-pic">
                     <img src="assets/img/women-3.jpg">
@@ -79,3 +80,5 @@
 
     </div>
 </div>
+
+<pagination-controls class="text-center my-pagination" (pageChange)="Page = $event"></pagination-controls>
