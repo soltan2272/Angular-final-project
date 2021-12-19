@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DeliverystatusComponent } from '../../deliverystatus/deliverystatus.component';
 import { UserGuardGuard } from 'src/app/Guards/user-guard.guard';
 import { HomeComponent } from 'src/app/Components/home/home.component';
+import { CustomerprofileComponent } from '../../customerprofile/page/customerprofile.component';
 
 
 const routs:Routes=[
@@ -15,6 +16,7 @@ const routs:Routes=[
   {path:"register", component:RegisterComponent},
   //canActivate:[UserGuardGuard]},
   {path:"delivery",component:DeliverystatusComponent},
+  {path:"profile" , component:CustomerprofileComponent},
   {path:"**", component:HomeComponent} 
 ]
 

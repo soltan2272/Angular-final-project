@@ -32,7 +32,7 @@ import { CustomerprofileComponent } from './Components/User/customerprofile/page
 import { DeliverystatusComponent } from './Components/User/deliverystatus/deliverystatus.component';
 import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { ToastrModule } from 'ngx-toastr/toastr/toastr.module';
+import { ToastrModule } from 'ngx-toastr';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from "ngx-progressbar/http"
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';

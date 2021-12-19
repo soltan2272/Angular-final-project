@@ -1,10 +1,10 @@
 export interface RegisterModel {
 
-    Full_Name:string,
-    Adrress:string
-    Phone:bigint
-    Email:string
-    Password:string
-    SSN:bigint
-    Date_Of_Birth:string
+    full_Name:string,
+    adrress:string
+    phone:bigint
+    email:string
+    password:string
+    ssn:bigint
+    date_Of_Birth:string
 }

@@ -52,4 +52,19 @@ export class LoginService {
   return this.httpservice
              .post<AuthModel>(`${environment.ApiUrl}user/login`,JSON.stringify(loginModel),httpOptions);
   }
+  getUserInfo(id:number)
+  {
+    console.log(id);
+    this.httpservice
+    .get<AuthModel>(`${environment.ApiUrl}user/getuser/${id}`).subscribe(
+      {
+        next:(res)=>{
+          console.log(res);
+        }
+      }
+    )
+
+    return this.httpservice
+    .get<AuthModel>(`${environment.ApiUrl}user/getuser/${id}`);
+  }
 }

@@ -1,3 +1,5 @@
+import { RegisterModel } from "./register-model";
+
 export interface AuthModel {
     message:string
     isAuthenticated:boolean
@@ -6,5 +8,6 @@ export interface AuthModel {
      roles:string[]
      token:string
      expiresOn:string
-     user_ID:number
+     user_ID:number;
+     data:RegisterModel;
 }

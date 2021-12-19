@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/Services/User/login.service';
+import { RegisterModel } from 'src/app/ViewModels/User/register-model';
 // import { CRUDCreatePage } from 'src/app/Models/shared/crud-create.model';
 import { CustomerService } from '../customer.service';
-import { CustomerViewModel } from '../viewModel/cutomer.model';
 
 @Component({
   selector: 'app-customerprofile',
@@ -12,19 +13,20 @@ import { CustomerViewModel } from '../viewModel/cutomer.model';
 })
 export class CustomerprofileComponent implements OnInit {
 
-  // page: CRUDCreatePage = new CRUDCreatePage();
-  isEdit: boolean = false;
-  model: CustomerViewModel = new CustomerViewModel();
-  item: CustomerViewModel = {} as CustomerViewModel;
+  userInfo:RegisterModel={} as RegisterModel;
 
-  constructor(
-    // private _sharedService: SharedService,
-    private activatedRoute: ActivatedRoute,
-    private _customerService: CustomerService,
+
+  constructor(private loginService:LoginService
   ) { }
 
   ngOnInit() {
-    
+    this.loginService.getUserInfo(Number (localStorage.getItem("userID")))
+    .subscribe({
+      next:(res)=>{
+        console.log(res.data);      
+        this.userInfo=res.data;
+      }
+    });
   }
 
   // initializePage() {
