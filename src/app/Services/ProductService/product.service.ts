@@ -9,23 +9,24 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllProducts():Observable<ResultViewModel>
-  {
+  getAllProducts(): Observable<ResultViewModel> {
     return this.http.get<ResultViewModel>(`${environment.ApiUrl}product/AdminProducts`)
-   }
+  }
 
-  //  getProductsByCategoryID(catID:number):Observable<IproductApi[]>{
-  //   return this.http.get<IproductApi[]>(`${environment.ApiUrl}/products?CateogryID=${catID}`)
-  //  }
-  //  getProductsByID(prodID:number):Observable<IproductApi>{
-  //   return this.http.get<IproductApi>(`${environment.ApiUrl}/products/${prodID}`)
+  topRateProducts(): Observable<ResultViewModel> {
+    return this.http.get<ResultViewModel>(`${environment.ApiUrl}Search/TopRate`)
+  }
+  newProducts(): Observable<ResultViewModel> {
+    return this.http.get<ResultViewModel>(`${environment.ApiUrl}Search/NewProducts`)
+  }
+  cheapProducts(): Observable<ResultViewModel> {
+    return this.http.get<ResultViewModel>(`${environment.ApiUrl}Search/CheepProducts`)
+  }
 
-  //  }
-
-  ProductDetails(id : number):Observable<ResultViewModel>{
-    return this.http.get<ResultViewModel>(`${environment.ApiUrl}product/`+id);
-   }
+  ProductDetails(id: number): Observable<ResultViewModel> {
+    return this.http.get<ResultViewModel>(`${environment.ApiUrl}product/` + id);
+  }
 
 }
