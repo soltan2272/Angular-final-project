@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from 'src/app/Services/cart/cart.service';
+import { OrderService } from 'src/app/Services/Order/order.service';
+import { IOrder } from 'src/app/ViewModels/Iorder/i-order';
 
 declare var paypal: {
   Buttons: (arg0: {
@@ -20,7 +22,9 @@ declare var paypal: {
 export class PaypalComponent implements OnInit {
   totalprice: number = 0;
   invoiceprice:number=0;
-  constructor(private cart: CartService) { }
+  order!:IOrder;
+  getOrder!:IOrder;
+  constructor(private cart: CartService,private orderser:OrderService) { }
   @ViewChild('paypal', { static: true }) paypalElement!: ElementRef;
 
 
@@ -50,7 +54,14 @@ export class PaypalComponent implements OnInit {
           const order = await actions.order.capture();
           this.paidFor = true;
           this.invoiceprice=this.totalprice;
-
+          this.order.totalPrice=this.totalprice;
+          let userid=localStorage.getItem("userID");
+          this.order.currentUserID= Number(userid); 
+          this.orderser.addOrder(order).subscribe();
+          
+          this.orderser.getOrderByID(this.order.id).subscribe(res=>{
+            this.getOrder=res.data;
+          })
           this.cart.rewoveAllItems();
         },
         onError: err => {
