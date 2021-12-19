@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './Components/add-product/add-product.component';
+import { AdminComponent } from './Components/admin/admin.component';
 import { EditProductComponent } from './Components/edit-product/edit-product.component';
 import { HomeComponent } from './Components/home/home.component';
 
@@ -14,12 +15,12 @@ import { ShopComponent } from './Components/productDetiales/product/shop/shop.co
 
 const routes: Routes = [
   {path:"" , redirectTo : '/home', pathMatch : 'full'},
-
   {path:"home" , component:HomeComponent},
   {path:"payment" , component:PaypalComponent},
   {path:"home" , component:ProductSerComponent},
   {path:"addProduct" , component:AddProductComponent},
   {path:"editProduct" , component:EditProductComponent},
+  {path:"admin" , component:AdminComponent},
 
   {path:"products" , 
   loadChildren : ()=> import ('src/app/Components/productDetiales/product/product.module').then(m=> m.ProductModule)},
