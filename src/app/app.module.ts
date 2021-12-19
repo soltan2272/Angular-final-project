@@ -27,6 +27,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
 import { CustomerprofileComponent } from './Components/User/customerprofile/customerprofile.component';
+import { AddofferComponent } from './Components/Offer/addoffer/addoffer/addoffer.component';
+import { UpdateofferComponent } from './Components/Offer/updateoffer/updateoffer/updateoffer.component';
+import { OfferModule } from './Components/Offer/offer.module';
 
 export function createTranslateLoader(http:HttpClient)
 {
@@ -48,8 +51,10 @@ export function createTranslateLoader(http:HttpClient)
     ShoppingCartComponent,
     PaymentComponent,
     PaypalComponent,
-    CustomerprofileComponent
-    
+    CustomerprofileComponent,
+    AddofferComponent,
+    UpdateofferComponent,
+   
     
     
   ],
@@ -67,6 +72,7 @@ export function createTranslateLoader(http:HttpClient)
     NgxPaginationModule,
     LazyLoadImageModule,
     UserModuleModule,
+    OfferModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -13,6 +13,7 @@ import { ShopComponent } from './shop/shop.component';
 
 import { NotResultSearchComponent } from './not-result-search/not-result-search.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -39,7 +40,8 @@ const routs:Routes=[
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routs)
+    RouterModule.forChild(routs),
+    NgxPaginationModule
   ]
 })
 export class ProductModule {
