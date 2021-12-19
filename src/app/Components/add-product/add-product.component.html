@@ -1,7 +1,7 @@
 <br>
-<h3>Add Product : </h3><br>
-<div>
-  <form #frm="ngForm" (ngSubmit)="addProduct()">
+<div >
+  <form class="col-lg-6 col-md-6 col-sm-12 m-auto" #frm="ngForm" (ngSubmit)="addProduct()">
+    <h3>Add Product : </h3><br>
     <!-- <div class="form-group">
       <label for="prdID">ID : </label>
       <input type="number" [(ngModel)]="prd.ID" name="ID" required id="prdID" class="form-control" placeholder="" >
@@ -24,33 +24,24 @@
     </div>
 
 
-    <div class="form-group">
-      <label for="prdQuantity">Rate : </label>
-      <input type="number" [(ngModel)]="prd.rate" name="rate" required min="1" id="prdRate" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product Rate</small><br>
+  
+
+    <div class="mb-2  mt-2">
+     <label for="cat" class="form-label">Description :</label>
+     <textarea  class="form-control" rows="3" required  name="description" id="prdDescription" [(ngModel)]="prd.description"></textarea>
+     <small id="helpId" class="text-muted">Enter Product Description</small><br>
     </div>
 
-    <div class="form-group">
-      <label for="prdQuantity">Description : </label>
-      <input type="text" [(ngModel)]="prd.description" name="description" required min="1" id="prdDescription" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product Description</small><br>
+   
+    <div class="mb-2  mt-2">
+      <label for="cat" class="form-label">Category:</label>
+      <select class="form-control" name="cat" id="cat" [(ngModel)]="prd.currentCategoryID" >
+        <option *ngFor="let cat of cateories" [value]="cat.id">
+            {{cat.name}}
+          </option>
+      </select>
     </div>
-
-
-    <div class="form-group">
-      <label for="prdcatID">CurrentCategoryID : </label>
-      <input type="number" [(ngModel)]="prd.currentCategoryID" name="CurrentCategoryID" required min="1" id="prdcatID" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product CurrentCategoryID</small><br>
-    </div>
-
-    <div class="form-group">
-      <label for="prdcatID">CurrentSupplierID : </label>
-      <input type="number" [(ngModel)]="prd.currentSupplierID" name="CurrentSupplierID" required min="1" id="prdcatID" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product CurrentSupplierID</small><br>
-    </div>
-
-
-
+    
     <ngx-dropzone (change)="onSelect($event)" style="margin: 20px;">
       <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
       <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
@@ -63,26 +54,9 @@
   
 
 
-    <div class="upload-image-sec">
-        <div class="form-group">
-          <label for="first-file-upload-btn">image 1 : </label>
-          <input type="file" [(ngModel)]="prd.imgspathes[0]"  name="imgspathes"  id="first-file-upload-btn" class="fileupload" aria-describedby="helpId">
-          <small id="helpId" class="text-muted">Select Product Img</small><br>
-        </div>
-        <div class="form-group">
-          <label for="first-file-upload-btn">image 2 : </label>
-          <input type="file" [(ngModel)]="prd.imgspathes[1]"  name="imgspathes"  id="first-file-upload-btn" class="fileupload" aria-describedby="helpId">
-          <small id="helpId" class="text-muted">Select Product Img</small><br>
-        </div>
-        <div class="form-group">
-          <label for="first-file-upload-btn">image 3 : </label>
-          <input type="file" [(ngModel)]="prd.imgspathes[2]"  name="imgspathes"  id="first-file-upload-btn" class="fileupload" aria-describedby="helpId">
-          <small id="helpId" class="text-muted">Select Product Img</small><br>
-        </div>
-  </div>
+   
 <br><br>
     <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
   </form>
 </div>
 <hr>
- {{prd | json}}
