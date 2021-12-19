@@ -9,7 +9,14 @@ export class SellerGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      if(localStorage.getItem("isuserlogged")=="")
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
   }
   
 }
