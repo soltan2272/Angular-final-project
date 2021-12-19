@@ -50,13 +50,13 @@ onLangChange()
     console.log(this.registerform.controls["Password"].value);
     console.log(this.registerform.controls["isSeller"].value);
 
-    this.registerModel.Full_Name=this.registerform.controls["FullName"].value;
-    this.registerModel.Email=this.registerform.controls["Email"].value;
-    this.registerModel.Password=this.registerform.controls["Password"].value;
-    this.registerModel.SSN=this.registerform.controls["SSN"].value;
-    this.registerModel.Adrress=this.registerform.controls["Address"].value;
-    this.registerModel.Phone=this.registerform.controls["Phone"].value;
-    this.registerModel.Date_Of_Birth=this.registerform.controls["date_birth"].value;
+    this.registerModel.full_Name=this.registerform.controls["FullName"].value;
+    this.registerModel.email=this.registerform.controls["Email"].value;
+    this.registerModel.password=this.registerform.controls["Password"].value;
+    this.registerModel.ssn=this.registerform.controls["SSN"].value;
+    this.registerModel.adrress=this.registerform.controls["Address"].value;
+    this.registerModel.phone=this.registerform.controls["Phone"].value;
+    this.registerModel.date_Of_Birth=this.registerform.controls["date_birth"].value;
     if(this.registerform.controls["isSeller"].value==true)
     {
       this.registerService.sellerregister( this.registerModel).subscribe(   

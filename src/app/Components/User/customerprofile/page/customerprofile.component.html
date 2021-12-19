@@ -20,9 +20,9 @@
             </div>
             <div class="profile__header">
               <!-- name and role -->
-              <h4>Richard Roe <!-- {{item.Full_Name}} --> <small>Customer</small></h4>
+              <h4>{{userInfo.full_Name}} <!-- {{item.Full_Name}} --> <small>Customer</small></h4>
               <p>
-                <a href="#">mustafa@gmail.com</a>   <!-- {{item.Email}} -->
+                <a href="#">{{userInfo.email}}</a>   <!-- {{item.Email}} -->
               </p>
             </div>
           </div>
@@ -32,29 +32,32 @@
         <!-- User info -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title">User info</h4>
+            <h4 class="panel-title">User info</h4>  
+          
           </div>
           <div class="panel-body">
             <table class="table profile__table">
               <tbody>
                 <tr>
                   <th><strong>Full Name</strong></th>
-                  <td>Mustafa Mohamed</td>
+                  <td>{{userInfo.full_Name}} </td>
                   <!-- {{item.Full_Name}} -->
                 </tr>
                 <tr>
                   <th><strong>Address</strong></th>
-                  <td>Qena</td>
+                  <td>{{userInfo.adrress}}</td>
                   <!-- {{item.Adrress}} -->
                 </tr>
                 <tr>
                   <th><strong>Social Security Number</strong></th>
-                  <td>12556365</td>
+                  <td>{{userInfo.phone}}</td>  
+              
+                 
                   <!-- {{item.SSN}} -->
                 </tr>
                 <tr>
                   <th><strong>Date of Birth</strong></th>
-                  <td>Jan 01, 2016</td>
+                  <td>{{userInfo.date_Of_Birth}}</td>
                   <!-- {{item.Date_Of_Birth}} -->
                 </tr>
               </tbody>
@@ -72,12 +75,12 @@
               <tbody>
                 <tr>
                   <th><strong>Email</strong></th>
-                  <td>test@gmail.com</td>
+                  <td>{{userInfo.email}}</td>
                   <!-- {{item.Email}} -->
                 </tr>
                 <tr>
                   <th><strong>Phone</strong></th>
-                  <td>01025654566</td>
+                  <td>{{userInfo.phone}}</td>
                   <!-- {{item.Phone}} -->
                 </tr>
               </tbody>
