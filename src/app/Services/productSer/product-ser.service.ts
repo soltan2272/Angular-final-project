@@ -16,17 +16,17 @@ export class ProductSerService {
 
   getAllProducts() :Observable<ResultViewModel>
   {
-    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/userProducts`);
+    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/AdminProducts`);
   }
 
   getProductByID(ID:number) :Observable<ResultViewModel>
   {
-    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/UserProduct/`+ID);
+    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/AdminProducts/`+ID);
   }
 
   getProductBySuppID(SuppID:number) :Observable<ResultViewModel>
   {
-   return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}product/GetProductBySupplierID/`+SuppID);
+   return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}search/Seller/`+SuppID);
   }
 
   addProduct(prod:InsertProduct) :Observable<ResultViewModel>

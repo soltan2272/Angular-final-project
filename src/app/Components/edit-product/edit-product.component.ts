@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductSerService } from 'src/app/Services/productSer/product-ser.service'
 import { InsertProduct } from 'src/app/ViewModels/insert-product';
 import { IProduct } from 'src/app/ViewModels/iproduct';
+import { ProductImage } from 'src/app/ViewModels/productImage/product-image';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,6 +14,8 @@ export class EditProductComponent implements OnInit {
  // prd:IProduct;
   pID:number=1;
   product!:InsertProduct;
+  product_Images:ProductImage[]=[];
+
   constructor(private productSer : ProductSerService
             , private router:Router , private acivatedRouter : ActivatedRoute) {
 
@@ -25,8 +28,8 @@ export class EditProductComponent implements OnInit {
                 rate:1,
                 currentCategoryID:1,
                 currentSupplierID:1,
-                imgspathes:["","",""]
-             }
+                product_Images:this.product_Images
+              }
 
 }  
 ngOnInit(): void {
