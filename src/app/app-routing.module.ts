@@ -18,7 +18,7 @@ import { RegisterComponent } from './Components/User/register/register.component
 import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
 
 const routes: Routes =  [
-  {    
+      
     {path:"home" , component:HomeComponent},
     {path:"payment" , component:PaypalComponent},
     {path:"blog" , component:ProductSerComponent},
@@ -33,7 +33,7 @@ const routes: Routes =  [
     {path:"customerprofile/:id" , component:CustomerprofileComponent},
     {path:"sellerprofile/:id" , component: SellerprofileComponent},
     {path:"**", component:HomeComponent} 
-  ]},
+  ]
 
 
 @NgModule({

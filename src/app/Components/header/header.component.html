@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a [routerLink]="['/home']" [hidden]="isUsrLoggd" routerLinkActive="router-link-active" >
+                        <a routerLink="/home" [hidden]="isUsrLoggd" routerLinkActive="router-link-active" >
                             <img src="assets/img/logo.png" alt="">
                         </a>
                     </div>
@@ -54,13 +54,13 @@
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
                         <li class="heart-icon">
-                            <a [routerLink]="['/products/watchlist']" >
+                            <a routerLink="/products/watchlist" >
                                 <i class="icon_heart_alt"></i>
                                 <span>{{watchlistnumber}}</span>
                             </a>
                         </li>
                         <li class="cart-icon">
-                            <a [routerLink]="['/shoppingcart']" >
+                            <a routerLink="/shoppingcart" >
                                 <i class="icon_bag_alt"></i>
                                 <span>{{cartnumber}}</span>
                             </a>
@@ -134,9 +134,9 @@
             </div>
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a></li>
-                    <li><a [routerLink]="['/products/shop']" routerLinkActive="router-link-active">Shop</a></li>
-                    <li><a [routerLink]="['/blog']" routerLinkActive="router-link-active">Blog</a></li>
+                    <li><a routerLink="/home" routerLinkActive="router-link-active" >Home</a></li>
+                    <li><a routerLink="/products/shop" routerLinkActive="router-link-active">Shop</a></li>
+                    <li><a routerLink="/blog" routerLinkActive="router-link-active">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Pages</a>
                         <ul class="dropdown">
