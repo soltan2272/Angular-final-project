@@ -25,10 +25,19 @@ export class HeaderComponent implements OnInit ,OnChanges{
     private cart: CartService,
     private loginservice:LoginService) { }
   ngOnChanges(changes: SimpleChanges): void {
+  
     this.loginservice.isUserlogged.subscribe(
       {
         next:(res)=>{
-          this.isUsrLoggd=res.valueOf();
+          console.log(localStorage.getItem("isuserlogged"));
+          if(localStorage.getItem("isuserlogged")=="true")
+          {
+            this.isUsrLoggd=true;
+          }
+          else
+          {
+            this.isUsrLoggd=false;
+          }
         }
       }
     )
@@ -47,10 +56,25 @@ export class HeaderComponent implements OnInit ,OnChanges{
     this.cart.getTotalPrice().subscribe(res =>
       this.totalPrice = res);
 
-      this.loginservice.isUserlogged.subscribe(
+     /* this.loginservice.isUserlogged.subscribe(
         {
           next:(res)=>{
             this.isUsrLoggd=res;
+          }
+        }
+      )*/
+      this.loginservice.isUserlogged.subscribe(
+        {
+          next:(res)=>{
+            console.log(localStorage.getItem("isuserlogged"));
+            if(localStorage.getItem("isuserlogged")=="true")
+            {
+              this.isUsrLoggd=true;
+            }
+            else
+            {
+              this.isUsrLoggd=false;
+            }
           }
         }
       )

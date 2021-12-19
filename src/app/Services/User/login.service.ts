@@ -36,7 +36,14 @@ export class LoginService {
                 this.isUserlogged.next(res.isAuthenticated);
                 this.userID.next(res.user_ID);
                 this.userToken.next(res.token);
-                this.userRoles.next(res.Roles);
+                this.userRoles.next(res.roles); 
+                if(res.isAuthenticated==true)    
+                {
+                  localStorage.setItem("isuserlogged","true");
+                  localStorage.setItem("usrToken",res.token),
+                  localStorage.setItem("userID",res.user_ID.toString()),
+                  localStorage.setItem("usrRoles",res.roles.join());
+                }
                 console.log(this.isUserlogged.value);
                }
              })

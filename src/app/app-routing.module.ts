@@ -18,11 +18,7 @@ import { RegisterComponent } from './Components/User/register/register.component
 import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
 
 const routes: Routes =  [
-  {
-    path:'',
-    component: LayoutComponent,
-    children:[{path:"" , redirectTo : '/home', pathMatch : 'full'},
-
+  {    
     {path:"home" , component:HomeComponent},
     {path:"payment" , component:PaypalComponent},
     {path:"blog" , component:ProductSerComponent},
@@ -36,13 +32,9 @@ const routes: Routes =  [
     loadChildren : ()=> import ('src/app/Components/shoppingCart/cart/cart.module').then(m=> m.CartModule)},
     {path:"customerprofile/:id" , component:CustomerprofileComponent},
     {path:"sellerprofile/:id" , component: SellerprofileComponent},
+    {path:"**", component:HomeComponent} 
   ]},
-  {path:"login",    component:LoginComponent},
-  {path:"register", component:RegisterComponent},
 
-
-
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

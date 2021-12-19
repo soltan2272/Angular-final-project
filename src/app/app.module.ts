@@ -27,6 +27,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
 import {NgxDropzoneModule } from 'ngx-dropzone';
+import { CustomerprofileComponent } from './Components/User/customerprofile/customerprofile.component';
 
 import { CustomerprofileComponent } from './Components/User/customerprofile/page/customerprofile.component';
 import { DeliverystatusComponent } from './Components/User/deliverystatus/deliverystatus.component';

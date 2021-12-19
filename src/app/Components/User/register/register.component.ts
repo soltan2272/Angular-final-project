@@ -74,7 +74,15 @@ onLangChange()
       console.log(this.authModel); 
       console.log(this.authModel.message)
     this.Message=res.message
-    this.isLogged=res.isAuthenticated
+    this.isLogged=res.isAuthenticated;
+    if(this.authModel.isAuthenticated==true)
+    {
+      setTimeout(() => {
+        this.Message="Registered Successfuly You will redirect to login page";
+        location.replace("/user/login");
+      },6000);
+   
+    }
     console.log(this.Message)}
     );
      }
