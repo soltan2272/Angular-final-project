@@ -3,7 +3,7 @@ export interface AuthModel {
     isAuthenticated:boolean
      Username:string
      Email:string
-     Roles:string[]
+     roles:string[]
      token:string
      expiresOn:string
      user_ID:number

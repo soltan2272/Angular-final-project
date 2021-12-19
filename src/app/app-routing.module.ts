@@ -26,7 +26,7 @@ const routes: Routes = [
   loadChildren : ()=> import ('src/app/Components/User/model/user-module/user-module.module').then(m=>m.UserModuleModule )},
   {path:"shoppingcart" , 
   loadChildren : ()=> import ('src/app/Components/shoppingCart/cart/cart.module').then(m=> m.CartModule)},
-  
+  {path:"**", component:HomeComponent} 
 ];
 
 @NgModule({

@@ -58,8 +58,17 @@ onLangChange()
        this.Message=res.message
        this.isLogged=res.isAuthenticated
        console.log(this.Message)
+        this.loginService.isUserlogged.subscribe({
+          next:(res)=>{
+            console.log(res)
+          }
+        })
         if(this.authModel.isAuthenticated==true)
-         this.Message="Login Successfuly"
+        {
+         this.Message="Login Successfuly";
+         console.log(localStorage.getItem("isuserlogged"));
+         console.log(localStorage.getItem("usrRoles"));
+        }
         }
      }
     }
