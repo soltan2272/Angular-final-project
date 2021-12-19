@@ -17,6 +17,9 @@ export class ProductSearchComponent implements OnInit {
   searchcategory!: number;
   name!: string;
 
+  PageNum:any;
+  Page:number = 1;
+
   constructor(private activerouter: ActivatedRoute,
     private searchservice: ProductSearchService,
     private watch:WatchListService,
@@ -34,6 +37,7 @@ export class ProductSearchComponent implements OnInit {
       this.searchservice.filterCategoryName(this.searchcategory, this.name).subscribe( res => {
 
           this.resultsearch = res.data;
+          this.PageNum = res.data.length;
           if (this.resultsearch.length == 0) {
             this.router.navigate(['/products/notresult', this.name]);
           }

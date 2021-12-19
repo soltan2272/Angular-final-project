@@ -9,8 +9,13 @@ import { WatchListService } from 'src/app/Services/watchList/WatchListService';
   styleUrls: ['./watch-list.component.scss']
 })
 export class WatchListComponent implements OnInit {
+
   products:any=[];
   count:number=0;
+
+  PageNum:any;
+  Page:number = 1;
+
   constructor(private watch:WatchListService,
               private cart:CartService,
               private route:Router) { }
@@ -18,6 +23,8 @@ export class WatchListComponent implements OnInit {
   ngOnInit(): void {
     this.watch.getProducts().subscribe(res=>{
       this.products=res;
+      this.PageNum = res.data.length;
+
    });
 
    this.watch.getcount().subscribe(res=>
@@ -39,4 +46,5 @@ export class WatchListComponent implements OnInit {
     
     this.cart.addtoCart(p);
   }
+
 }
