@@ -28,6 +28,7 @@ import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
 import {NgxDropzoneModule } from 'ngx-dropzone';
 import { CustomerprofileComponent } from './Components/User/customerprofile/customerprofile.component';
+import { DeliverystatusComponent } from './Components/User/deliverystatus/deliverystatus.component';
 
 
 export function createTranslateLoader(http:HttpClient)
@@ -50,7 +51,8 @@ export function createTranslateLoader(http:HttpClient)
     ShoppingCartComponent,
     PaymentComponent,
     PaypalComponent,
-    CustomerprofileComponent
+    CustomerprofileComponent,
+    DeliverystatusComponent
     
     
     
