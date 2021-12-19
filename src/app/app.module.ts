@@ -26,6 +26,7 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
+import {NgxDropzoneModule } from 'ngx-dropzone';
 
 export function createTranslateLoader(http:HttpClient)
 {
@@ -65,6 +66,7 @@ export function createTranslateLoader(http:HttpClient)
     NgxPaginationModule,
     LazyLoadImageModule,
     UserModuleModule,
+    NgxDropzoneModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
