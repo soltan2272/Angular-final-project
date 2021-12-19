@@ -26,7 +26,19 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
-import { CustomerprofileComponent } from './Components/User/customerprofile/customerprofile.component';
+import {NgxDropzoneModule } from 'ngx-dropzone';
+import { CustomerprofileComponent } from './Components/User/customerprofile/page/customerprofile.component';
+import { DeliverystatusComponent } from './Components/User/deliverystatus/deliverystatus.component';
+import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ToastrModule } from 'ngx-toastr';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { LayoutComponent } from './Components/layout/layout.component';
+
+
 
 export function createTranslateLoader(http:HttpClient)
 {
@@ -48,10 +60,13 @@ export function createTranslateLoader(http:HttpClient)
     ShoppingCartComponent,
     PaymentComponent,
     PaypalComponent,
-    CustomerprofileComponent
-    
-    
-    
+    DeliverystatusComponent,
+    CustomerprofileComponent,
+    SellerprofileComponent,
+    LayoutComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -66,7 +81,16 @@ export function createTranslateLoader(http:HttpClient)
     Ng2OrderModule,
     NgxPaginationModule,
     LazyLoadImageModule,
-    UserModuleModule,
+    UserModuleModule,ModalModule.forRoot(),
+    ToastrModule.forRoot({}),
+    NgProgressModule.withConfig({
+      spinnerPosition: "right",
+      color: "#f71cff"
+    }),
+    NgProgressHttpModule,NgxSkeletonLoaderModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+
+    NgxDropzoneModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
