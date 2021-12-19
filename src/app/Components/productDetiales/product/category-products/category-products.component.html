@@ -70,7 +70,8 @@
     <!-- product -->
     <div class="row" *ngIf="resultsearch.length !=0">
       <div class="owl-item col-lg-4  m-0  mb-3 col-md-6 col-sm-12"
-        style="width: 20vw; border: 2px solid rgb(236, 226, 226); border-radius: 10px;" *ngFor="let p of resultsearch">
+        style="width: 20vw; border: 2px solid rgb(236, 226, 226); border-radius: 10px;" 
+        *ngFor="let p of resultsearch | paginate: { itemsPerPage: 6, currentPage: Page ,totalItems: PageNum }">
         <div class="product-item">
           <div class="pi-pic">
             <img src="assets/img/women-3.jpg">
@@ -137,7 +138,7 @@
         </div>
       </div>
 
-
+      <pagination-controls class="text-center my-pagination" (pageChange)="Page = $event"></pagination-controls>
 
 
 

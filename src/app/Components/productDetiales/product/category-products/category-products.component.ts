@@ -15,6 +15,10 @@ export class CategoryProductsComponent implements OnInit {
   name!:string;
   resultsearch:IndexProduct[]=[];
   firestResult:IndexProduct[]=[];
+
+  PageNum:any;
+  Page:number = 1;
+
   constructor(private searchservice:ProductSearchService,
               private activerouter:ActivatedRoute,
               private watch:WatchListService,
@@ -28,6 +32,7 @@ export class CategoryProductsComponent implements OnInit {
         {
           this.firestResult = res.data;
           this.resultsearch = this.firestResult;
+          this.PageNum = res.data.length;
 
         })
     })
@@ -51,8 +56,12 @@ export class CategoryProductsComponent implements OnInit {
 
   filterRate(min:number,max:number){
     this.resultsearch=this.firestResult.filter(p=>p.rate>=min&&p.rate<=max);
+    this.PageNum = this.resultsearch.length;
+
   }
   filterPrice(min:number,max:number){
     this.resultsearch=this.firestResult.filter(p=>p.price>=min&&p.price<=max);
+    this.PageNum = this.resultsearch.length;
+
   }
 }

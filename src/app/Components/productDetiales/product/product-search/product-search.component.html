@@ -1,71 +1,74 @@
 <div class="row">
   
- <div class="owl-item col-lg-3 m-0 col-md-6 mb-3 col-sm-12" style=" border: 1px solid rgb(236, 226, 226); border-radius: 10px;" *ngFor="let p of resultsearch">
-    <div class="product-item">
-        <div class="pi-pic">
-            <img src="assets/img/women-3.jpg">
-            <a class="icon" (click)="AddWatch(p)">
-                <i class="text-danger icon_heart_alt" ></i>
-            </a>
-            <ul>
-                <li class="w-icon active">
-                    <a _ngcontent-npt-c17="" (click)="addcart(p)">
-                        <i class="icon_bag_alt"></i>
-                    </a>
-                </li>
-                <li class="quick-view">
-                    <a (click)="getproductditails(p.id)" style="cursor: pointer;">+ Quick View</a>
-                </li>
-                <li class="w-icon">
-                    <a _ngcontent-npt-c17="" href="#">
-                        <i class="fa fa-random"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="pi-text">
-            <div class="catagory-name" [ngSwitch]="p.rate">
-                <div *ngSwitchCase="1">
-                    <span id="s1" class="s1 fa fa-star checked"></span>
-                    <span id="s2" class="s2 fa fa-star "></span>
-                    <span id="s3" class="s3 fa fa-star "></span>
-                    <span id="s4" class="s4 fa fa-star"></span>
-                    <span id="s5" class="s5 fa fa-star"></span>
-                </div>
-                <div *ngSwitchCase="2">
-                    <span id="s1" class="s1 fa fa-star checked"></span>
-                    <span id="s2" class="s2 fa fa-star checked"></span>
-                    <span id="s3" class="s3 fa fa-star "></span>
-                    <span id="s4" class="s4 fa fa-star"></span>
-                    <span id="s5" class="s5 fa fa-star"></span>
-                </div>
-                <div *ngSwitchCase="3">
-                    <span id="s1" class="s1 fa fa-star checked"></span>
-                    <span id="s2" class="s2 fa fa-star checked"></span>
-                    <span id="s3" class="s3 fa fa-star checked"></span>
-                    <span id="s4" class="s4 fa fa-star"></span>
-                    <span id="s5" class="s5 fa fa-star"></span>
-                </div>
-                <div *ngSwitchCase="4">
-                    <span id="s1" class="s1 fa fa-star checked"></span>
-                    <span id="s2" class="s2 fa fa-star checked"></span>
-                    <span id="s3" class="s3 fa fa-star checked"></span>
-                    <span id="s4" class="s4 fa fa-star checked"></span>
-                    <span id="s5" class="s5 fa fa-star"></span>
-                </div>
-                <div *ngSwitchCase="5">
-                    <span id="s1" class="s1 fa fa-star checked"></span>
-                    <span id="s2" class="s2 fa fa-star checked"></span>
-                    <span id="s3" class="s3 fa fa-star checked"></span>
-                    <span id="s4" class="s4 fa fa-star checked"></span>
-                    <span id="s5" class="s5 fa fa-star checked"></span>
-                </div>
-            </div>
-            <h5>{{p.name}}</h5>
-            <div class="product-price"> {{p.price | currency: 'LE'}}</div>
-        </div>
-    </div>
-  </div>
-</div>
-
-
+    <div class="owl-item col-lg-3 m-0 col-md-6 mb-3 col-sm-12" style=" border: 1px solid rgb(236, 226, 226); border-radius: 10px;"
+     *ngFor="let p of resultsearch  | paginate: { itemsPerPage: 6, currentPage: Page ,totalItems: PageNum }">
+       <div class="product-item">
+           <div class="pi-pic">
+               <img src="assets/img/women-3.jpg">
+               <a class="icon" (click)="AddWatch(p)">
+                   <i class="text-danger icon_heart_alt" ></i>
+               </a>
+               <ul>
+                   <li class="w-icon active">
+                       <a _ngcontent-npt-c17="" (click)="addcart(p)">
+                           <i class="icon_bag_alt"></i>
+                       </a>
+                   </li>
+                   <li class="quick-view">
+                       <a (click)="getproductditails(p.id)" style="cursor: pointer;">+ Quick View</a>
+                   </li>
+                   <li class="w-icon">
+                       <a _ngcontent-npt-c17="" href="#">
+                           <i class="fa fa-random"></i>
+                       </a>
+                   </li>
+               </ul>
+           </div>
+           <div class="pi-text">
+               <div class="catagory-name" [ngSwitch]="p.rate">
+                   <div *ngSwitchCase="1">
+                       <span id="s1" class="s1 fa fa-star checked"></span>
+                       <span id="s2" class="s2 fa fa-star "></span>
+                       <span id="s3" class="s3 fa fa-star "></span>
+                       <span id="s4" class="s4 fa fa-star"></span>
+                       <span id="s5" class="s5 fa fa-star"></span>
+                   </div>
+                   <div *ngSwitchCase="2">
+                       <span id="s1" class="s1 fa fa-star checked"></span>
+                       <span id="s2" class="s2 fa fa-star checked"></span>
+                       <span id="s3" class="s3 fa fa-star "></span>
+                       <span id="s4" class="s4 fa fa-star"></span>
+                       <span id="s5" class="s5 fa fa-star"></span>
+                   </div>
+                   <div *ngSwitchCase="3">
+                       <span id="s1" class="s1 fa fa-star checked"></span>
+                       <span id="s2" class="s2 fa fa-star checked"></span>
+                       <span id="s3" class="s3 fa fa-star checked"></span>
+                       <span id="s4" class="s4 fa fa-star"></span>
+                       <span id="s5" class="s5 fa fa-star"></span>
+                   </div>
+                   <div *ngSwitchCase="4">
+                       <span id="s1" class="s1 fa fa-star checked"></span>
+                       <span id="s2" class="s2 fa fa-star checked"></span>
+                       <span id="s3" class="s3 fa fa-star checked"></span>
+                       <span id="s4" class="s4 fa fa-star checked"></span>
+                       <span id="s5" class="s5 fa fa-star"></span>
+                   </div>
+                   <div *ngSwitchCase="5">
+                       <span id="s1" class="s1 fa fa-star checked"></span>
+                       <span id="s2" class="s2 fa fa-star checked"></span>
+                       <span id="s3" class="s3 fa fa-star checked"></span>
+                       <span id="s4" class="s4 fa fa-star checked"></span>
+                       <span id="s5" class="s5 fa fa-star checked"></span>
+                   </div>
+               </div>
+               <h5>{{p.name}}</h5>
+               <div class="product-price"> {{p.price | currency: 'LE'}}</div>
+           </div>
+       </div>
+     </div>
+   </div>
+   
+   
+   <pagination-controls class="text-center my-pagination" (pageChange)="Page = $event"></pagination-controls>
+   

@@ -30,7 +30,10 @@ const routes: Routes =  [
     loadChildren : ()=> import ('src/app/Components/User/model/user-module/user-module.module').then(m=>m.UserModuleModule )},
     {path:"shoppingcart" ,
     loadChildren : ()=> import ('src/app/Components/shoppingCart/cart/cart.module').then(m=> m.CartModule)},
+    {path:"offer" , 
+    loadChildren : ()=> import ('src/app/Components/offer/offer.module').then(m=> m.OfferModule)},  
     {path:"**", component:HomeComponent} 
+
   ]
 
 
