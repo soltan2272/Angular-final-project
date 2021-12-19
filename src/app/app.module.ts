@@ -38,6 +38,7 @@ import { NgProgressHttpModule } from "ngx-progressbar/http"
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { OfferModule } from './Components/offer/offer.module';
 
 
 
@@ -86,7 +87,7 @@ export function createTranslateLoader(http:HttpClient)
     Ng2OrderModule,
     NgxPaginationModule,
     LazyLoadImageModule,
-
+    OfferModule,
     UserModuleModule,ModalModule.forRoot(),
     ToastrModule.forRoot({}),
     NgProgressModule.withConfig({

@@ -23,61 +23,63 @@
 
                         <div class="col-sm-6">
                             <div class="product-inner">
-                                <h2 class="product-name mb-4">{{product?.name}}</h2>
+                                <h2 class="product-name mb-4">{{product.name}}</h2>
                                 <div class="product-inner-price mb-4">
-                                    <b>{{product?.price | currency : 'LE'}}</b>
+                                    <b>{{product.price}}</b>
                                 </div>
 
                                 <div action="" class="cart mb-5">
                                     <div class="quantity">
-                                        <button class="btn btn-primary" (click)="addcart(product)" >Add to cart</button>
+                                        <button class="btn btn-primary" (click)="addcart(product)">Add to cart</button>
                                     </div>
                                 </div>
+                                <!-- style-binding -->
+                                <button [style.background-color]="Details?'blue':'#008CBA'" class="btn btn-primary m-3"
+                                    (click)="toggleDetailsFeedback()">Details</button>
 
-                                        <ul class="nav nav-tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#">Description</a>
-                                            </li>
-                                            
-                                            
-
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Link</a>
-                                            </li>
-                                            <div>
-                                                <h2>Product Description</h2>  
-                                                {{product?.description}}</div>
-                                            <div>
-                                                <p><label for="name">Name</label> <input class="form-control" name="name" type="text"></p>
-                                                <p><label for="email">Email</label> <input class="form-control" name="email" type="email"></p>
-                                                <div class="rating-chooser">
-                                                    <p>Your rating</p>
-
-                                                    <div class="rating-wrap-post">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </div>
-                                                <p><label for="review">Your review</label> <textarea class="form-control" name="review" id="" cols="30" rows="10"></textarea></p>
-                                                <p><input class="btn btn-primary" type="submit" value="Submit"></p>
-                                            </div>
-                                        </ul>
-                                    </div>
+                                <button [style.background-color]="Details?'#008CBA':'blue'" class="btn btn-primary"
+                                    (click)="toggleDetailsFeedback()">Feedback</button>
+                                <div *ngIf="Details">
+                                    <h2>Product Description</h2>
+                                    {{product?.description}}
                                 </div>
+                                <div *ngIf="Feedback">
+                                    <p><label for="name">Name</label> <input class="form-control" name="name"
+                                            type="text"></p>
+                                    <p><label for="email">Email</label> <input class="form-control" name="email"
+                                            type="email"></p>
+                                    <div class="rating-chooser">
+                                        <p>Your rating</p>
 
-                         
+                                        <div class="rating-wrap-post">
+                                            <span class="fa fa-star"  [class.checked]="isRated1" (click)="ChangeRating(1)"></span>
+                                            <span class="fa fa-star"  [class.checked]="isRated2" (click)="ChangeRating(2)"></span>
+                                            <span class="fa fa-star"  [class.checked]="isRated3" (click)="ChangeRating(3)"></span>
+                                            <span class="fa fa-star"  [class.checked]="isRated4" (click)="ChangeRating(4)"></span>
+                                            <span class="fa fa-star"  [class.checked]="isRated5" (click)="ChangeRating(5)"></span>
+                                          
+                                        
+                                        
+                                        </div>
+                                    </div>
+                                    <p><label for="review">Your review</label> <textarea class="form-control"
+                                            name="review" id="" cols="30" rows="10"></textarea></p>
+                                    <p><input class="btn btn-primary" type="submit" value="Submit"></p>
+                                </div>
+                               
                             </div>
                         </div>
-                    </div>
 
 
-
-                    <div class="related-products-wrapper">
-                        <h2 class="related-products-title">Some Review </h2>
                     </div>
                 </div>
             </div>
+
+
+
+            <div class="related-products-wrapper">
+                <h2 class="related-products-title">Some Review </h2>
+            </div>
         </div>
+    </div>
+</div>
