@@ -29,6 +29,7 @@ export class ProductdetailsComponent implements OnInit {
 
 
   addcart(p:any){ 
+    
     this.cart.addtoCart(p);
   }
 }
