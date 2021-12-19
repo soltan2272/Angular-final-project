@@ -27,6 +27,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { PaypalComponent } from './Components/paypal/paypal.component';
 import {NgxDropzoneModule } from 'ngx-dropzone';
+
 import { CustomerprofileComponent } from './Components/User/customerprofile/page/customerprofile.component';
 import { DeliverystatusComponent } from './Components/User/deliverystatus/deliverystatus.component';
 import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
@@ -37,6 +38,7 @@ import { NgProgressHttpModule } from "ngx-progressbar/http";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { LayoutComponent } from './Components/layout/layout.component';
+
 
 
 
@@ -60,6 +62,7 @@ export function createTranslateLoader(http:HttpClient)
     ShoppingCartComponent,
     PaymentComponent,
     PaypalComponent,
+
     DeliverystatusComponent,
     CustomerprofileComponent,
     SellerprofileComponent,
@@ -67,6 +70,8 @@ export function createTranslateLoader(http:HttpClient)
 
 
 
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,7 @@ export function createTranslateLoader(http:HttpClient)
     Ng2OrderModule,
     NgxPaginationModule,
     LazyLoadImageModule,
+
     UserModuleModule,ModalModule.forRoot(),
     ToastrModule.forRoot({}),
     NgProgressModule.withConfig({
@@ -89,6 +95,7 @@ export function createTranslateLoader(http:HttpClient)
     }),
     NgProgressHttpModule,NgxSkeletonLoaderModule.forRoot(),
     BsDatepickerModule.forRoot(),
+
 
     NgxDropzoneModule,
     TranslateModule.forRoot({
