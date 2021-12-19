@@ -17,6 +17,10 @@ export class ShopComponent implements OnInit {
   splitids:string[]=[];
   ids:number[]=[];
   whatchlist=new BehaviorSubject([]);
+
+  PageNum:any;
+  Page:number = 1;
+
   constructor(private productServes:ProductService ,
               private rout : Router,private watch:WatchListService,
               private cart:CartService) { 
@@ -30,7 +34,7 @@ export class ShopComponent implements OnInit {
        this.productServes.getAllProducts().subscribe(
       (response) => {
         this.indexProducts = response.data;
-
+        this.PageNum = response.data.length;
         
       },
       (error) => { console.log(error) }
