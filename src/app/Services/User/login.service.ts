@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthModel } from 'src/app/ViewModels/User/auth-model';
 import { LoginModel } from 'src/app/ViewModels/User/login-model';
+import { RegisterModel } from 'src/app/ViewModels/User/register-model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -68,5 +69,23 @@ export class LoginService {
 
     return this.httpservice
     .get<AuthModel>(`${environment.ApiUrl}user/getuser/${id}`);
+  }
+
+  editProfile(registerModl:RegisterModel)
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    this.httpservice
+    .post<string>(`${environment.ApiUrl}user/edituser`,JSON.stringify(registerModl),httpOptions)
+    .subscribe({
+      next:(res)=>{
+     console.log(res);
+    }})
+
+console.log(registerModl);
+return this.httpservice
+    .post<string>(`${environment.ApiUrl}user/edituser`,JSON.stringify(registerModl),httpOptions);
   }
 }

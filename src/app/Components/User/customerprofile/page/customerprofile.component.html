@@ -1,14 +1,14 @@
 
 <!-- *ngIf="page.isPageLoaded" -->
-<ng-container >
+<ng-container d-flex justify-content-center >
   <br />
-  <div class="container">
+  <div class="container" style="text-align: center;">
     <div class="row">
       <div class="col-xs-12 col-sm-9">
         <!-- User profile -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title">Customer profile</h4>
+            <h4 class="panel-title">{{userRole}} profile</h4>
           </div>
           <br />
           <div class="panel-body">
@@ -86,7 +86,7 @@
               </tbody>
             </table>
             <br />
-            <button type="button" class="btn btn-primary">
+            <button type="button" (click)="editprofile(userInfo)" class="btn btn-primary">
               Edit your Profile
             </button>
           </div>
@@ -108,249 +108,5 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!------ Include the above in your HEAD tag ---------->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12">
-                <h4>Customer Profile</h4>
-                <hr />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <!-- [formGroup]="page.form" -->
-                <form >
-                  <div class="form-group row">
-                    <label for="Full Name" class="col-4 col-form-label"
-                      >Full Name <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div
-                        [class.has-error]="
-                          isControlValidAndTouched('Full_Name')
-                        "
-                      >
-                        <input
-                          placeholder="Full Name"
-                          class="form-control here"
-                          type="text"
-                          formControlName="Full_Name"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('Full_Name')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('Full_Name', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="Phone" class="col-4 col-form-label"
-                      >Phone <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div
-                        [class.has-error]="isControlValidAndTouched('Phone')"
-                      >
-                        <input
-                          placeholder="Phone"
-                          class="form-control here"
-                          type="text"
-                          formControlName="Phone"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('Phone')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('Phone', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="Address" class="col-4 col-form-label"
-                      >Address <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div
-                        [class.has-error]="isControlValidAndTouched('Adrress')"
-                      >
-                        <input
-                          placeholder="Address"
-                          class="form-control here"
-                          type="text"
-                          formControlName="Adrress"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('Adrress')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('Adrress', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="Email" class="col-4 col-form-label"
-                      >Email <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div
-                        [class.has-error]="isControlValidAndTouched('Email')"
-                      >
-                        <input
-                          placeholder="Email"
-                          class="form-control here"
-                          type="text"
-                          formControlName="Email"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('Email')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('Email', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="SSN" class="col-4 col-form-label"
-                      >Social Security Number
-                      <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div [class.has-error]="isControlValidAndTouched('SSN')">
-                        <input
-                          placeholder="Social Security Number"
-                          class="form-control here"
-                          type="text"
-                          formControlName="SSN"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('SSN')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('SSN', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="SSN" class="col-4 col-form-label"
-                      >Social Security Number
-                      <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div [class.has-error]="isControlValidAndTouched('SSN')">
-                        <input
-                          placeholder="Social Security Number"
-                          class="form-control here"
-                          type="text"
-                          formControlName="SSN"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('SSN')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="isControlHasError('SSN', 'required')"
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="SSN" class="col-4 col-form-label"
-                      >Date Of Birth
-                      <span class="text text-danger">*</span></label
-                    >
-                    <div class="col-8">
-                      <!-- <div
-                        [class.has-error]="
-                          isControlValidAndTouched('Date_Of_Birth')
-                        "
-                      >
-                        <input
-                          bsDatepicker
-                          class="form-control here"
-                          type="text"
-                          formControlName="Date_Of_Birth"
-                        />
-                        <div
-                          *ngIf="isControlNotValidAndDirty('Date_Of_Birth')"
-                          class="input-err c-red font-12"
-                        >
-                          <p
-                            class="validation-error-message"
-                            *ngIf="
-                              isControlHasError('Date_Of_Birth', 'required')
-                            "
-                          >
-                            this field is required.
-                          </p>
-                        </div>
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-4 col-8">
-                      <button
-                        class="btn btn-primary"
-
-
-                      >
-                      <!-- [disabled]="disabledSubmit()" -->
-                      <!-- (click)="save()" -->
-                        Update My Profile
-                      </button>
-                      <button
-                        name="reset"
-                        type="reset"
-                        class="btn btn-light ms-2"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </ng-container>
 

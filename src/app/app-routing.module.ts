@@ -16,11 +16,13 @@ import { CustomerprofileComponent } from './Components/User/customerprofile/page
 import { LoginComponent } from './Components/User/login/login.component';
 import { RegisterComponent } from './Components/User/register/register.component';
 import { SellerprofileComponent } from './Components/User/sellerprofile/page/sellerprofile.component';
+import { ProfileGuard } from './Guards/profile.guard';
+import { UserGuardGuard } from './Guards/user-guard.guard';
 
 const routes: Routes =  [
       
     {path:"home" , component:HomeComponent},
-    {path:"payment" , component:PaypalComponent},
+    {path:"payment" , component:PaypalComponent,canActivate:[ProfileGuard]},
     {path:"blog" , component:ProductSerComponent},
     {path:"addProduct" , component:AddProductComponent},
     {path:"editProduct/:PID" , component:EditProductComponent},
