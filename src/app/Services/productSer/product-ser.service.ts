@@ -40,12 +40,12 @@ export class ProductSerService {
     return this.httpProduct.post<ResultViewModel>(`${environment.ApiUrl}Product/addProduct`,prod,httpOptions);
   }
 
-  updateProduct(prod:InsertProduct) :Observable<ResultViewModel>
+  updateProduct(id:number,prod:InsertProduct) :Observable<ResultViewModel>
   {
    
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-
-    return this.httpProduct.put<ResultViewModel>(`${environment.ApiUrl}Product/UpdateProduct`,prod,httpOptions);
+    debugger
+    return this.httpProduct.put<ResultViewModel>(`${environment.ApiUrl}Product/editProduct/`+id,prod,httpOptions);
   }
 
   editProduct(id:number, prod:InsertProduct)  :Observable<ResultViewModel>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart/cart.service';
+import { FeedbackService } from 'src/app/Services/Feedback/feedback.service';
 import { ProductService } from 'src/app/Services/ProductService/product.service';
+import { IFeedback } from 'src/app/ViewModels/feedback/i-feedback';
 import { IndexProduct } from 'src/app/ViewModels/index-product';
 
 @Component({
@@ -23,12 +25,14 @@ export class ProductdetailsComponent implements OnInit {
   isRated3 = false;
   isRated4 = false;
   isRated5 = false;
-
+  feadback!:IFeedback;
   constructor(private ActRouter: ActivatedRoute,
     private router: Router, private ProService: ProductService,
-    private cart: CartService) { }
-
+    private cart: CartService,
+    private feedService:FeedbackService) { }
+    
   ngOnInit(): void {
+    this.feadback.type
     this.ActRouter.paramMap.subscribe(param => {
       this.productid = Number(param.get('pid'));
       this.ProService.ProductDetails(this.productid).subscribe(res => {
@@ -127,7 +131,12 @@ export class ProductdetailsComponent implements OnInit {
         break;
     }
   }
-
+  addfeadback(){
+    this.feadback.rate=this.Rate;
+    let userid=localStorage.getItem("userID");
+    this.feadback.currentUserID=Number(userid); 
+    this.feedService.addFeedback( this.feadback).subscribe();
+  }
   // this.ProService.setRate(this.proid,this.Rate).subscribe();
 
 }

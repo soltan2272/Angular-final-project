@@ -4,8 +4,8 @@
      *ngFor="let p of resultsearch  | paginate: { itemsPerPage: 6, currentPage: Page ,totalItems: PageNum }">
        <div class="product-item">
            <div class="pi-pic">
-               <img src="assets/img/women-3.jpg">
-               <a class="icon" (click)="AddWatch(p)">
+            <img src="{{p.product_Images[0].image_URL}}">
+            <a class="icon" (click)="AddWatch(p)">
                    <i class="text-danger icon_heart_alt" ></i>
                </a>
                <ul>

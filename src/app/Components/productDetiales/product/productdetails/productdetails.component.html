@@ -8,15 +8,10 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
-                                <div class="product-main-img">
-                                    <!-- <img src="{{product?.image}}" alt=""> -->
-                                    <img src="assets/img/women-3.jpg">
-                                </div>
+                                <img src="{{product.product_Images[0].image_URL}}">
 
-                                <div class="product-gallery">
-                                    <img src="img/product-thumb-1.jpg" alt="">
-                                    <img src="img/product-thumb-2.jpg" alt="">
-                                    <img src="img/product-thumb-3.jpg" alt="">
+                                <div class="product-gallery" *ngFor="let img of product.product_Images">
+                                    <img src="{{img.image_URL}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -44,10 +39,11 @@
                                     {{product?.description}}
                                 </div>
                                 <div *ngIf="Feedback">
-                                    <p><label for="name">Name</label> <input class="form-control" name="name"
-                                            type="text"></p>
-                                    <p><label for="email">Email</label> <input class="form-control" name="email"
-                                            type="email"></p>
+                                    <p><label for="name">Type</label> 
+                                        <input class="form-control" type="text" id="name" name="name"
+                                            ></p>
+                                    <p><label for="email">Subject</label> <input class="form-control" name="email"
+                                        id="email"    type="text"></p>
                                     <div class="rating-chooser">
                                         <p>Your rating</p>
 
@@ -64,7 +60,7 @@
                                     </div>
                                     <p><label for="review">Your review</label> <textarea class="form-control"
                                             name="review" id="" cols="30" rows="10"></textarea></p>
-                                    <p><input class="btn btn-primary" type="submit" value="Submit"></p>
+                                    <p><input class="btn btn-primary" type="button" (click)="addfeadback()" value="Submit"></p>
                                 </div>
                                
                             </div>

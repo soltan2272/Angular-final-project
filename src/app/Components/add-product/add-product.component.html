@@ -1,7 +1,13 @@
 <br>
+
+<h1 class="center">Add Product : </h1><br>
+<div class="row m-5" style="background-color: grey; border-radius: 20px;">
+  <form #frm="ngForm" (ngSubmit)="addProduct()" class="m-2">
+
 <div >
   <form class="col-lg-6 col-md-6 col-sm-12 m-auto" #frm="ngForm" (ngSubmit)="addProduct()">
     <h3>Add Product : </h3><br>
+
     <!-- <div class="form-group">
       <label for="prdID">ID : </label>
       <input type="number" [(ngModel)]="prd.ID" name="ID" required id="prdID" class="form-control" placeholder="" >
@@ -10,21 +16,36 @@
     <div class="form-group">
       <label for="prdName">Name : </label>
       <input type="text" [(ngModel)]="prd.name" #prdName="ngModel" [class.is-invalid]="prdName.invalid && prdName.touched" [class.is-valid]="prdName.valid" required minlength="3" name="Name" id="prdName" class="form-control" placeholder="" aria-describedby="helpId">
-      <small [hidden]="prdName.valid || prdName.untouched" id="helpId" class="text-muted">Name must be more than 3 letters</small><br>
+      <small [hidden]="prdName.valid || prdName.untouched" id="helpId" style="color: white;">Name must be more than 3 letters</small><br>
     </div>
     <div class="form-group">
       <label for="prdPrice">Price : </label>
       <input type="number" [(ngModel)]="prd.price" name="price" required min="1" id="prdPrice" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product Price</small><br>
+      <small id="helpId" style="color: white;">Enter Product Price</small><br>
     </div>
     <div class="form-group">
       <label for="prdQuantity">Quantity : </label>
       <input type="number" [(ngModel)]="prd.quantity" name="quantity" required min="1" id="prdQuantity" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Enter Product quantity</small><br>
+      <small id="helpId" style="color: white;">Enter Product quantity</small><br>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="prdRate">Rate : </label>
+      <input type="number" [(ngModel)]="prd.rate" name="rate" required min="1" id="prdRate" class="form-control" placeholder="" aria-describedby="helpId">
+      <small id="helpId" class="text-muted">Enter Product Rate</small><br>
+    </div>
+
+    <div class="form-group">
+      <label for="prdDescription">Description : </label>
+      <input type="text" [(ngModel)]="prd.description" name="description" required min="1" id="prdDescription" class="form-control" placeholder="" aria-describedby="helpId">
+      <small id="helpId" style="color: white;">Enter Product Description</small><br>
     </div>
 
 
   
+
 
     <div class="mb-2  mt-2">
      <label for="cat" class="form-label">Description :</label>
@@ -59,4 +80,7 @@
     <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
   </form>
 </div>
-<hr>
+
+<!-- <hr>
+ {{prd | json}} -->
+

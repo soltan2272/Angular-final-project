@@ -1,3 +1,5 @@
+import { ProductImage } from "./productImage/product-image";
+
 export interface IProduct {
      id:number;
      name:string;
@@ -8,4 +10,6 @@ export interface IProduct {
      rate:number;
      currentSupplierID:number;
      currentCategoryID:number;
+     product_Images:ProductImage[]
+
 }
