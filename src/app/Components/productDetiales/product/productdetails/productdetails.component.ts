@@ -133,6 +133,8 @@ export class ProductdetailsComponent implements OnInit {
   }
   addfeadback(){
     this.feadback.rate=this.Rate;
+    let userid=localStorage.getItem("userID");
+    this.feadback.currentUserID=Number(userid); 
     this.feedService.addFeedback( this.feadback).subscribe();
   }
   // this.ProService.setRate(this.proid,this.Rate).subscribe();
