@@ -8,5 +8,6 @@ export interface IndexProduct {
     price:number,
     description : string,
     quantity:number,
+    product_Images:ProductImage[]
 
 }

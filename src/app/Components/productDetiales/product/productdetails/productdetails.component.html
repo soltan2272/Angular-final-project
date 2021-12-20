@@ -8,15 +8,10 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
-                                <div class="product-main-img">
-                                    <!-- <img src="{{product?.image}}" alt=""> -->
-                                    <img src="assets/img/women-3.jpg">
-                                </div>
+                                <img src="{{product.product_Images[0].image_URL}}">
 
-                                <div class="product-gallery">
-                                    <img src="img/product-thumb-1.jpg" alt="">
-                                    <img src="img/product-thumb-2.jpg" alt="">
-                                    <img src="img/product-thumb-3.jpg" alt="">
+                                <div class="product-gallery" *ngFor="let img of product.product_Images">
+                                    <img src="{{img.image_URL}}" alt="">
                                 </div>
                             </div>
                         </div>
