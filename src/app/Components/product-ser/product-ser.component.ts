@@ -44,6 +44,7 @@ export class ProductSerComponent implements OnInit , OnChanges {
             this.Product = res;
             this.ps =Array.from(this.Product.data);
             console.log(this.ps)
+        
           })
       })
     }
@@ -52,15 +53,12 @@ export class ProductSerComponent implements OnInit , OnChanges {
   deleteProd(id:number)
   {
     
-    this.ActRouter.paramMap.subscribe(param =>{
-    this.productSer.deleteProduct(id).subscribe({
-      next : (res) =>
-       { 
-         this.ps = res.data as IProduct[]
-       }
-    }) 
-   })
+  this.productSer.deleteProduct(id).subscribe(res=>{
+    this.ngOnInit();
+  })
+
   }
+
   update(id:number){
     this.router.navigate(['/editProduct',id]);
   }
