@@ -18,7 +18,7 @@ export class EditProductComponent implements OnInit {
   product!:InsertProduct;
   cateories:ICategory[]=[];
   files: File[] = [];
-
+  id:number=1;
   constructor(private productSer : ProductSerService
             , private router:Router , private acivatedRouter : ActivatedRoute ,
               private categoryserv:CategoryService,
@@ -42,8 +42,8 @@ export class EditProductComponent implements OnInit {
 }  
 ngOnInit(): void {
   this.ActRouter.paramMap.subscribe(param => {
-    let id= Number(param.get('PID'));
-    this.productSer.getProduct(id).subscribe(res => {
+    this.id= Number(param.get('PID'));
+    this.productSer.getProduct(this.id).subscribe(res => {
       this.product = res.data;
     })
   })
@@ -51,8 +51,8 @@ ngOnInit(): void {
     this.categoryserv.getcateory().subscribe(res=>{
       this.cateories=res.data;
     })
-    let userid=localStorage.getItem("userID");
-    this.product.currentSupplierID=1001; 
+    let userid=Number(localStorage.getItem("userID"));
+    this.product.currentSupplierID=userid; 
   }
   onSelect(event:any) {   
     console.log(event);
@@ -66,39 +66,39 @@ ngOnInit(): void {
 
 
   editProduct()
-  { if(!this.files)
-    {
-      this.productSer.updateProduct(this.product).subscribe(res2=>
-        this.router.navigateByUrl("/blog")
+  { 
+    // if(!this.files)
+    // {
+    //   this.productSer.updateProduct(this.product).subscribe(res2=>
+    //     this.router.navigateByUrl("/blog")
 
-      )    }
-    else{
-      for (let i=0;i<this.files.length;i++ ){//var key in this.files) {
-        const fileData = this.files[i];//this.files[0];
-        const data = new FormData();
-        data.append('file',fileData);
-        data.append('upload_preset','Angular_cloudinary');
-        data.append('cloud_name','dppeduocd');
-        this.uploadService.uploadImage(data).subscribe(
-          res=>{
-            if (res){
-              console.log(res.secure_url);
-              this.product.imgspathes[i]=res.secure_url;
+    //   )    }
+    // else{
+    //   for (let i=0;i<this.files.length;i++ ){//var key in this.files) {
+    //     const fileData = this.files[i];//this.files[0];
+    //     const data = new FormData();
+    //     data.append('file',fileData);
+    //     data.append('upload_preset','Angular_cloudinary');
+    //     data.append('cloud_name','dppeduocd');
+    //     this.uploadService.uploadImage(data).subscribe(
+    //       res=>{
+    //         if (res){
+    //           console.log(res.secure_url);
+    //           this.product.imgspathes[i]=res.secure_url;
               
-              if(i==this.files.length-1){
-                this.productSer.updateProduct(this.product).subscribe(res2=>
-                  this.router.navigateByUrl("/blog")
+    //           if(i==this.files.length-1){
+    //             this.productSer.updateProduct(this.product).subscribe(res2=>
+    //               this.router.navigateByUrl("/blog")
 
-                )  
-              }
-            }
-          
-          })
-        
-        }
-    
-          
-      }
-  }
+    //             )  
+    //           }
+    //         }
+    //       })        
+    //     }
+    //   }
+    debugger
+    this.productSer.updateProduct(this.id,this.product).subscribe(res2=>
+                   this.router.navigateByUrl("/blog")
+  )
 
-}
+}}

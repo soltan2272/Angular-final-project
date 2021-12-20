@@ -42,15 +42,6 @@
       </select>
     </div>
     
-    <ngx-dropzone (change)="onSelect($event)" style="margin: 20px;">
-      <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-        <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
-        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-          <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
-        </ngx-dropzone-image-preview>
-      </ngx-dropzone-preview>
-    </ngx-dropzone>
   
 
     <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>

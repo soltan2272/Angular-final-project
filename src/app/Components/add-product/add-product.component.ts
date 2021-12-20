@@ -42,8 +42,8 @@ export class AddProductComponent implements OnInit {
     this.categoryserv.getcateory().subscribe(res=>{
       this.cateories=res.data;
     })
-    let userid=localStorage.getItem("userID");
-    this.prd.currentSupplierID=1001; 
+    let userid=Number(localStorage.getItem("userID"));
+    this.prd.currentSupplierID=userid; 
   }
 
   onSelect(event:any) {   
