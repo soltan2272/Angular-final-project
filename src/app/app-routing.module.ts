@@ -23,7 +23,7 @@ const routes: Routes =  [
     {path:"home" , component:HomeComponent},
     {path:"contact" , component:ContactusComponent},
     {path:"payment" , component:PaypalComponent},
-    {path:"blog" , component:ProductSerComponent},
+    {path:"mystore" , component:ProductSerComponent},
     {path:"addProduct" , component:AddProductComponent},
     {path:"editProduct/:PID" , component:EditProductComponent},
     {path:"products" ,

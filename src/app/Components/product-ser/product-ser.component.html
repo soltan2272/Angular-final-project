@@ -1,7 +1,11 @@
-<a href="#" class="btn btn-primary" [routerLink]="['/addProduct']" role="button">ADD Product</a>
+<br>
+<h1 class="center">Products</h1><br>
 
-<h2>Products<h2>
- <table class="table">
+<div class="text-end m-3">
+  <a href="#" class="btn btn-success text-end" [routerLink]="['/addProduct']" role="button">ADD Product</a>
+</div>
+ <div class="row m-5" style="background-color: darkgray; border-radius: 20px;">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -24,10 +28,11 @@
           <!-- <td>{{}item.Image}</td> -->
          <td> <a href="#" class="btn btn-primary" [routerLink]="['/editProduct',item.id]" role="button">Edit Product</a></td>
           <!-- <td><a href="#" class="btn btn-primary" [routerLink]="['/deleteProduct']" role="button">Delete Product</a></td> -->
-          <td><button class="btn btn-primary" (click)="deleteProd(item.id)">Delete Product</button></td>
+          <td><button class="btn btn-danger" (click)="deleteProd(item.id)">Delete Product</button></td>
          </tr>
 
     </tbody>
   </table> 
   
+ </div>
   
