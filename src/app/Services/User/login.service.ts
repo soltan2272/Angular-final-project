@@ -41,6 +41,8 @@ export class LoginService {
                 {
                   localStorage.setItem("isuserlogged","true");
                   localStorage.setItem("usrToken",res.token),
+                  localStorage.setItem("usrName",res.Username),
+                  localStorage.setItem("usrEmail",res.Email),
                   localStorage.setItem("userID",res.user_ID.toString()),
                   localStorage.setItem("usrRoles",res.roles.join());
                 }
