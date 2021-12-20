@@ -43,9 +43,9 @@ export class EditProductComponent implements OnInit {
 ngOnInit(): void {
   this.ActRouter.paramMap.subscribe(param => {
     this.id= Number(param.get('PID'));
-    this.productSer.getProduct(this.id).subscribe(res => {
-      this.product = res.data;
-    })
+    // this.productSer.getProduct(this.id).subscribe(res => {
+    //   this.product = res.data;
+    //})
   })
     //throw new Error('Method not implemented.');
     this.categoryserv.getcateory().subscribe(res=>{
@@ -53,6 +53,7 @@ ngOnInit(): void {
     })
     let userid=Number(localStorage.getItem("userID"));
     this.product.currentSupplierID=userid; 
+    this.product.rate = 0;
   }
   onSelect(event:any) {   
     console.log(event);
@@ -97,8 +98,6 @@ ngOnInit(): void {
     //     }
     //   }
     debugger
-    this.productSer.updateProduct(this.id,this.product).subscribe(res2=>
+    this.productSer.updateProduct(this.id,this.product).subscribe(res2=>console.log(res2.data))
                    this.router.navigateByUrl("/blog")
-  )
-
 }}
