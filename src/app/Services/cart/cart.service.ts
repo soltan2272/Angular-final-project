@@ -69,7 +69,7 @@ export class CartService {
   }
   getTotalPrice(){
     this.totalPrice.next(this.prices);
-
+    localStorage.setItem("allpayment",this.totalPrice.value.toString());
     return this.totalPrice.asObservable();
   }
 

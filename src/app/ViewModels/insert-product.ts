@@ -8,4 +8,5 @@ export interface InsertProduct {
      rate:number;
      currentSupplierID:number;
      currentCategoryID:number;
+     
 }

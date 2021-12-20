@@ -16,12 +16,15 @@ export class ProductSerService {
 
   getAllProducts() :Observable<ResultViewModel>
   {
-    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/userProducts`);
+    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/AdminProducts`);
   }
-
+  getProduct(id:number) :Observable<ResultViewModel>
+  {
+    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/AdminProduct/${id}`);
+  }
   getProductByID(ID:number) :Observable<ResultViewModel>
   {
-    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/UserProduct/`+ID);
+    return this.httpProduct.get<ResultViewModel>(`${environment.ApiUrl}Product/AdminProduct/`+ID);
   }
 
   getProductBySuppID(SuppID:number) :Observable<ResultViewModel>
@@ -31,17 +34,18 @@ export class ProductSerService {
 
   addProduct(prod:InsertProduct) :Observable<ResultViewModel>
   {
-    // const httpOptions={
-    //   headers : new HttpHeaders({
-    //     'content-type':'application/JSON'
-    //   })
-    // }
+   
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-    //return this.httpProduct.post<any>(`${environment.ApiUrl}Product/addProduct`,JSON.stringify(prod),httpOptions);
-    this.httpProduct.post<ResultViewModel>(`${environment.ApiUrl}Product/addProduct`,prod,httpOptions).subscribe({
-      next : (res) => console.log(res)
-    })
+
     return this.httpProduct.post<ResultViewModel>(`${environment.ApiUrl}Product/addProduct`,prod,httpOptions);
+  }
+
+  updateProduct(prod:InsertProduct) :Observable<ResultViewModel>
+  {
+   
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
+
+    return this.httpProduct.put<ResultViewModel>(`${environment.ApiUrl}Product/UpdateProduct`,prod,httpOptions);
   }
 
   editProduct(id:number, prod:InsertProduct)  :Observable<ResultViewModel>

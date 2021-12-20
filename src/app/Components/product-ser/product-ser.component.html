@@ -26,7 +26,7 @@
           <td>{{item.rate}}</td>
         
           <!-- <td>{{}item.Image}</td> -->
-         <td> <a href="#" class="btn btn-primary" [routerLink]="['/editProduct',item.id]" role="button">Edit Product</a></td>
+         <td> <a  class="btn btn-warning" (click)="update(item.id)" role="button">Update Product</a></td>
           <!-- <td><a href="#" class="btn btn-primary" [routerLink]="['/deleteProduct']" role="button">Delete Product</a></td> -->
           <td><button class="btn btn-danger" (click)="deleteProd(item.id)">Delete Product</button></td>
          </tr>
