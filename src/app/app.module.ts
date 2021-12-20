@@ -39,6 +39,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { OfferModule } from './Components/offer/offer.module';
+import { ContactusComponent } from './Components/ContactUs/contactus/contactus.component';
 
 
 
@@ -68,6 +69,7 @@ export function createTranslateLoader(http:HttpClient)
     CustomerprofileComponent,
     SellerprofileComponent,
     LayoutComponent,
+    ContactusComponent,
 
 
 

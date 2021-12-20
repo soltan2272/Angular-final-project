@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './Components/add-product/add-product.component';
+import { ContactusComponent } from './Components/ContactUs/contactus/contactus.component';
 import { EditProductComponent } from './Components/edit-product/edit-product.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LayoutComponent } from './Components/layout/layout.component';
@@ -20,6 +21,7 @@ import { SellerprofileComponent } from './Components/User/sellerprofile/page/sel
 const routes: Routes =  [
       
     {path:"home" , component:HomeComponent},
+    {path:"contact" , component:ContactusComponent},
     {path:"payment" , component:PaypalComponent},
     {path:"blog" , component:ProductSerComponent},
     {path:"addProduct" , component:AddProductComponent},
