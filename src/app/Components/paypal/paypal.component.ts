@@ -66,13 +66,13 @@ export class PaypalComponent implements OnInit {
           this.orderser.addOrder(order).subscribe();
           this.savedUsrAddress=this.usrAddress;
 
-          this.orderser.getOrderByID(order.id).subscribe(res=>{
+         /* this.orderser.getOrderByID(order.id).subscribe(res=>{
             console.log(res.data);
             this.getOrder=res.data;
             this.usrName= JSON.parse(localStorage.getItem("usrName")!);
             this.usrEmail = JSON.parse(localStorage.getItem("usrEmail")!);
             
-          })
+          })*/
           this.cart.rewoveAllItems();
         
         },

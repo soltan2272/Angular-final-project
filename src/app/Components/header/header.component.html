@@ -16,7 +16,10 @@
 
                 <a routerLink="/user/login" [hidden]="isUsrLoggd" class="login-panel"><i class="fa fa-user"></i>Login</a>
 
-                <a routerLink="" [hidden]="!isUsrLoggd" class="login-panel"><i class="fa fa-user"></i>My Account</a>
+                <a routerLink="/user/logout" [hidden]="!isUsrLoggd" class="login-panel"><i class="fa fa-user"></i>Log Out</a>
+                
+                <a routerLink="/user/profile" [hidden]="!isUsrLoggd" class="login-panel"><i class="fa fa-user"></i>My Account</a>
+
                 <div class="top-social">
                     <a href="#"><i class="ti-facebook"></i></a>
                     <a href="#"><i class="ti-twitter-alt"></i></a>

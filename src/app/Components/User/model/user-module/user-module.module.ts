@@ -9,14 +9,18 @@ import { DeliverystatusComponent } from '../../deliverystatus/deliverystatus.com
 import { UserGuardGuard } from 'src/app/Guards/user-guard.guard';
 import { HomeComponent } from 'src/app/Components/home/home.component';
 import { CustomerprofileComponent } from '../../customerprofile/page/customerprofile.component';
+import { EditProfileComponent } from '../../edit-profile/edit-profile.component';
+import { LogoutComponent } from '../../logout/logout.component';
+import { ProfileGuard } from 'src/app/Guards/profile.guard';
 
 
 const routs:Routes=[
-  {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent},
-  //canActivate:[UserGuardGuard]},
-  {path:"delivery",component:DeliverystatusComponent},
-  {path:"profile" , component:CustomerprofileComponent},
+  {path:"login", component:LoginComponent,canActivate:[UserGuardGuard]},
+  {path:"register", component:RegisterComponent,canActivate:[UserGuardGuard]},
+  {path:"delivery",component:DeliverystatusComponent,canActivate:[ProfileGuard]},
+  {path:"profile" , component:CustomerprofileComponent,canActivate:[ProfileGuard]},
+  {path:"editprofile" , component:EditProfileComponent,canActivate:[ProfileGuard]},
+  {path:"logout" , component:LogoutComponent,canActivate:[ProfileGuard]},
   {path:"**", component:HomeComponent} 
 ]
 

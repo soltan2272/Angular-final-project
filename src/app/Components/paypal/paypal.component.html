@@ -3,14 +3,14 @@
     <h1>Buy this Couch - ${{totalprice}} $</h1>
   
     <h2>
-      <textarea rows="4" cols="50" [(ngModel)]="usrAddress" form="usrform">
+      <textarea required rows="4" cols="50" [(ngModel)]="usrAddress" form="usrform">
         Enter Detailed Address Here here...</textarea>
         
-        <p>The text area above is outside the form element, but should still be a part of the form.</p>
+        <p>Your Address Details  </p>
         
     </h2>
   
-  {{usrAddress}}
+
   </div>
   
   <div *ngIf=paidFor style="text-align: center;">

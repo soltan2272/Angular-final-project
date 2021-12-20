@@ -1,5 +1,6 @@
 export interface RegisterModel {
 
+    id:number,
     full_Name:string,
     adrress:string
     phone:bigint

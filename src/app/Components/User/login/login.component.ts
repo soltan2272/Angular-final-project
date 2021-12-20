@@ -66,6 +66,7 @@ onLangChange()
         if(this.authModel.isAuthenticated==true)
         {
          this.Message="Login Successfuly";
+         location.replace("/user/profile");
          console.log(localStorage.getItem("isuserlogged"));
          console.log(localStorage.getItem("usrRoles"));
         }

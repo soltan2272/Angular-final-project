@@ -14,7 +14,7 @@ import { CustomerService } from '../customer.service';
 export class CustomerprofileComponent implements OnInit {
 
   userInfo:RegisterModel={} as RegisterModel;
-
+  userRole:string="";
 
   constructor(private loginService:LoginService
   ) { }
@@ -25,8 +25,20 @@ export class CustomerprofileComponent implements OnInit {
       next:(res)=>{
         console.log(res.data);      
         this.userInfo=res.data;
+        if(localStorage.getItem("usrRoles")?.includes("Seller"))
+        {
+          this.userRole="Seller"
+        }
+        else
+        {
+          this.userRole="Customer"
+        }
       }
     });
+  }
+  editprofile(uerInfo:RegisterModel)
+  {
+    location.assign("/user/editprofile");
   }
 
   // initializePage() {
