@@ -38,7 +38,7 @@ export class AddProductComponent implements OnInit {
       rate:1,
       currentCategoryID:1,
       currentSupplierID:1, 
-      product_Images:this.product_Images
+     // product_Images:this.product_Images
   }
    }
 
@@ -77,20 +77,19 @@ export class AddProductComponent implements OnInit {
           (res)=>{
             if (res)
               console.log(res.secure_url);
-              this.product_Images[i].image_url=res.secure_url;
-              this.prd.product_Images[i].image_url=res.secure_url;
+              this.product_Images[i].image_URL=res.secure_url;
+              //this.prd.product_Images[i].image_url=res.secure_url;
           })
         
         }
         this.productserv.addProduct(this.prd).subscribe({
           next : res=>{ console.log(res)
-            this.productserv.addImages( this.product_Images).subscribe(
-              res2=> console.log(res2)
-            );
+        
           }
-          
-
-        })    
+        })   
+        this.productserv.addImages( this.product_Images).subscribe(
+          res2=> console.log(res2)
+        ); 
       }
       //  this.router.navigateByUrl("/blog");
   }

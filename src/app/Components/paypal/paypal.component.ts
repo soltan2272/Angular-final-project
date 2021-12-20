@@ -22,18 +22,23 @@ declare var paypal: {
 export class PaypalComponent implements OnInit {
   totalprice: number = 0;
   invoiceprice:number=0;
-  order!:IOrder;
-  getOrder!:IOrder;
+  orderIOrder={} as IOrder;
+  getOrder:IOrder={} as IOrder;
   constructor(private cart: CartService,private orderser:OrderService) { }
   @ViewChild('paypal', { static: true }) paypalElement!: ElementRef;
 
 
   paidFor = false;
 
+  usrAddress:string=""
+  savedUsrAddress:string=""
+  usrName:string="";
+  usrEmail:string="";
+
   ngOnInit() {
     this.cart.getTotalPricepayment().subscribe(res => {
       this.totalprice = res;
-
+    
     })
 
     paypal
@@ -54,15 +59,22 @@ export class PaypalComponent implements OnInit {
           const order = await actions.order.capture();
           this.paidFor = true;
           this.invoiceprice=this.totalprice;
-          this.order.totalPrice=this.totalprice;
+          order.totalPrice=this.invoiceprice;
           let userid=localStorage.getItem("userID");
-          this.order.currentUserID= Number(userid); 
+          order.currentUserID= Number(userid); 
+          console.log(order);
           this.orderser.addOrder(order).subscribe();
-          
-          this.orderser.getOrderByID(this.order.id).subscribe(res=>{
+          this.savedUsrAddress=this.usrAddress;
+
+          this.orderser.getOrderByID(order.id).subscribe(res=>{
+            console.log(res.data);
             this.getOrder=res.data;
+            this.usrName= JSON.parse(localStorage.getItem("usrName")!);
+            this.usrEmail = JSON.parse(localStorage.getItem("usrEmail")!);
+            
           })
           this.cart.rewoveAllItems();
+        
         },
         onError: err => {
           console.log(err);

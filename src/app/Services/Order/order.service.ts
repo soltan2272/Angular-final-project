@@ -25,6 +25,13 @@ export class OrderService {
      const httpOptions = {
        headers: new HttpHeaders({'Content-Type': 'application/json'})
      }
+     this.http
+              .post<ResultViewModel>(`${environment.ApiUrl}User/addorder`,JSON.stringify(order),httpOptions)
+              .subscribe({
+                next:(res)=>{
+                  console.log(res)
+                }
+              });
    return this.http
               .post<ResultViewModel>(`${environment.ApiUrl}User/addorder`,JSON.stringify(order),httpOptions);
    }

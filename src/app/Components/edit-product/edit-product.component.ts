@@ -28,7 +28,7 @@ export class EditProductComponent implements OnInit {
                 rate:1,
                 currentCategoryID:1,
                 currentSupplierID:1,
-                product_Images:this.product_Images
+              //  product_Images:this.product_Images
               }
 
 }  
