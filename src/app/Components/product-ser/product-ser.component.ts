@@ -61,5 +61,7 @@ export class ProductSerComponent implements OnInit , OnChanges {
     }) 
    })
   }
-
+  update(id:number){
+    this.router.navigate(['/editProduct',id]);
+  }
 }

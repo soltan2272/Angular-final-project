@@ -17,13 +17,12 @@ export class ProductsService {
   {
 
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-    return this.http.post<ResultViewModel>(`${environment.ApiUrl}Product/addangularProduct`,product,httpOptions);
+    return this.http.post<ResultViewModel>(`${environment.ApiUrl}Product/addProduct`,product,httpOptions);
   }
-  addImages(images:ProductImage[]) :Observable<ResultViewModel>
-  {
-
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-    return this.http.post<ResultViewModel>(`${environment.ApiUrl}Product/addangularimages`,images,httpOptions);
-  }
+  // addImages(images:ProductImage[]) :Observable<ResultViewModel>
+  // {
+  //   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
+  //   return this.http.post<ResultViewModel>(`${environment.ApiUrl}Product/addangularimages`,images,httpOptions);
+  // }
 
 }

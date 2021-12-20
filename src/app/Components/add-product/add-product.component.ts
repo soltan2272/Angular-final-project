@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductsService } from 'src/app/Services/addEditDeleteProduct/products.service';
 import { CategoryService } from 'src/app/Services/CategoryService/category.service';
 import { ProductSerService } from 'src/app/Services/productSer/product-ser.service'
 import { UploadImgService } from 'src/app/Services/uploadImgInCloudinary/upload-img.service';
 import { ICategory } from 'src/app/ViewModels/Category/i-category';
 import { InsertProduct } from 'src/app/ViewModels/insert-product';
 import { IProduct } from 'src/app/ViewModels/iproduct';
-import { ProductImage } from 'src/app/ViewModels/productImage/product-image';
 
 @Component({
   selector: 'app-add-product',
@@ -19,15 +17,13 @@ export class AddProductComponent implements OnInit {
   prd:InsertProduct; //= {} as IProduct; 
   addFrm !: FormGroup;
   categoryID!:number;
-  product_Images:ProductImage[]=[];
   cateories:ICategory[]=[];
   files: File[] = [];
   constructor(private productSer : ProductSerService
             , private fb:FormBuilder
             , private router:Router
             , private uploadService : UploadImgService,
-            private categoryserv:CategoryService,
-            private productserv:ProductsService) {
+            private categoryserv:CategoryService) {
     
     this.prd={
       id:0,
@@ -38,7 +34,7 @@ export class AddProductComponent implements OnInit {
       rate:1,
       currentCategoryID:1,
       currentSupplierID:1, 
-      product_Images:this.product_Images
+      imgspathes:[""]
   }
    }
 
@@ -47,7 +43,7 @@ export class AddProductComponent implements OnInit {
       this.cateories=res.data;
     })
     let userid=localStorage.getItem("userID");
-    this.prd.currentSupplierID= Number(userid); 
+    this.prd.currentSupplierID=1001; 
   }
 
   onSelect(event:any) {   
@@ -62,6 +58,7 @@ export class AddProductComponent implements OnInit {
 
   addProduct()
   {
+    
     if(!this.files)
     {
       alert("Select Image")
@@ -74,25 +71,25 @@ export class AddProductComponent implements OnInit {
         data.append('upload_preset','Angular_cloudinary');
         data.append('cloud_name','dppeduocd');
         this.uploadService.uploadImage(data).subscribe(
-          (res)=>{
-            if (res)
+          res=>{
+            if (res){
               console.log(res.secure_url);
-              this.product_Images[i].image_url=res.secure_url;
-              this.prd.product_Images[i].image_url=res.secure_url;
+              this.prd.imgspathes[i]=res.secure_url;
+              
+              if(i==this.files.length-1){
+                this.productSer.addProduct(this.prd).subscribe(res2=>
+                  this.router.navigateByUrl("/blog")
+
+                )  
+              }
+            }
+          
           })
         
         }
-        this.productserv.addProduct(this.prd).subscribe({
-          next : res=>{ console.log(res)
-            this.productserv.addImages( this.product_Images).subscribe(
-              res2=> console.log(res2)
-            );
-          }
+    
           
-
-        })    
       }
-      //  this.router.navigateByUrl("/blog");
   }
   
 }

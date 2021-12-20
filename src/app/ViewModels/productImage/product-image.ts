@@ -1,6 +1,6 @@
 export interface ProductImage {
     id:number;
-    image_url:string;
-    currentproductid:number;
+    image_URL:string;
+    currentProductID:number;
 
 }
